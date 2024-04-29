@@ -1,30 +1,76 @@
 ---
+import JavaScript from "../svg/JavaScript.astro";
+import TypeScript from "../svg/TypeScript.astro";
+import Nest from "../svg/Nest.astro";
+import React from "../svg/React.astro";
+import Next from "../svg/Next.astro";
+import NodeJs from "../svg/NodeJs.astro";
+import Express from "../svg/Express.astro";
+import Java from "../svg/Java.astro";
+import Tailwind from "../svg/Tailwind.astro";
+import AstroLogo from "../svg/AstroLogo.astro";
+import Spring from "../svg/Spring.astro";
+import Oracle from "../svg/Oracle.astro";
 
+const skills = [
+    { title: "JavaScript", icon: JavaScript },
+    { title: "TypeScript", icon: TypeScript },
+    { title: "NestJS", icon: Nest },
+    { title: "React", icon: React },
+    { title: "NextJS", icon: Next },
+    { title: "NodeJS", icon: NodeJs },
+    { title: "Express", icon: Express },
+    { title: "Java", icon: Java },
+    { title: "Tailwind", icon: Tailwind },
+    { title: "Astro", icon: AstroLogo },
+    { title: "Spring", icon: Spring },
+    { title: "OWCS", icon: Oracle },
+];
 ---
 
 <section id="skills-section">
     <h1>My Skills</h1>
-    <div class="container-skills"></div>
+    <div class="container-skills">
+        {
+            skills.map(({ title, icon: Icon }) => (
+                <div class="skill">
+                    <Icon />
+                    {title}
+                </div>
+            ))
+        }
+    </div>
 </section>
+<script></script>
 
 <style>
     #skills-section {
         text-align: center;
         margin-top: var(--p-60);
-        .container-skill {
+        h1 {
+            margin-bottom: var(--p-60);
+        }
+        .container-skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            .icon {
+                width: 3rem;
+                height: 3rem;
+            }
             .skill {
-                display: inline-block;
-                padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
                 transition: background-color 0.3s;
                 border: 1px solid var(--color-zinc-100);
                 color: var(--color-zinc-100);
                 transition: all 0.3s ease-in-out;
-                &:hover {
-                    background-color: var(--color-zinc-600);
-                }
-                &.active {
-                    background-color: var(--color-zinc-600);
-                }
+                width: 150px;
+                height: 150px;
             }
         }
     }

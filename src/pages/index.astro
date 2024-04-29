@@ -8,3 +8,26 @@ import Layout from "../layouts/Layout.astro";
 	<HeroSection />
 	<SkillsSection />
 </Layout>
+
+<script>
+	document.addEventListener("astro:page-load", () => {
+		const sections = document.querySelectorAll("section");
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("appear");
+					} else {
+						entry.target.classList.remove("appear");
+					}
+				});
+			},
+			{ threshold: 0.5 },
+		);
+		sections.forEach((section) => {
+			observer.observe(section);
+		});
+	});
+</script>
+
