@@ -1,26 +1,29 @@
 ---
+import { Image } from "astro:assets";
 import SocialBar from "./SocialBar.astro";
+import Banner from "../../assets/banner.png";
+
+const textHeroSection = {
+    title: "Hello I'am <span>Víctor Manuel</span> Ordiales García. <br> <span>Full Stack Developer</span>.",
+    description:
+        "Desarrollador Full Stack con experiencia en tecnologías como React, Node, Express, MongoDB, entre otras. Apasionado por la tecnología y la programación.",
+};
+const { title, description } = textHeroSection;
 ---
 
 <section id="hero-section">
     <div class="text-hero-section">
-        <h1>
-            Hello I'am Víctor Manuel Ordiales García.
-            <br />Full Stack Developer
-        </h1>
+        <h1 set:html={title} />
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequuntur cum et quasi dicta alias? Pariatur, cum suscipit iusto
-            distinctio commodi corrupti tenetur excepturi id molestiae iure eos
-            dolore magni aut. Fuga sint incidunt eos. Minus quis distinctio
-            mollitia dolor repellat odit magnam possimus quas accusamus officia
+            {description}
         </p>
         <SocialBar />
     </div>
     <div class="img-hero-section">
-        <img
-            src="/hero-section-banner-2-no-bg.png"
+        <Image
+            src={Banner}
             alt="Imagen del banner principal"
+            loading={"eager"}
         />
     </div>
 </section>
@@ -34,6 +37,14 @@ import SocialBar from "./SocialBar.astro";
         position: relative;
         .text-hero-section {
             flex: 1;
+            h1 {
+                span {
+                    font-weight: bold;
+                    color: transparent;
+                    -webkit-text-stroke: 1px var(--color-zinc-100);
+                    text-stroke: 1px var(--color-zinc-100);
+                }
+            }
             p {
                 color: var(--color-zinc-600);
             }

@@ -12,6 +12,10 @@ import AstroLogo from "../svg/AstroLogo.astro";
 import Spring from "../svg/Spring.astro";
 import Oracle from "../svg/Oracle.astro";
 
+const skillsSection = {
+    title: "My <span>Skills</span>",
+};
+const { title } = skillsSection;
 const skills = [
     { title: "JavaScript", icon: JavaScript },
     { title: "TypeScript", icon: TypeScript },
@@ -29,7 +33,7 @@ const skills = [
 ---
 
 <section id="skills-section">
-    <h1>My Skills</h1>
+    <h1 set:html={title} />
     <div class="container-skills">
         {
             skills.map(({ title, icon: Icon }) => (
@@ -41,7 +45,6 @@ const skills = [
         }
     </div>
 </section>
-<script></script>
 
 <style>
     #skills-section {
@@ -49,6 +52,12 @@ const skills = [
         margin-top: var(--p-60);
         h1 {
             margin-bottom: var(--p-60);
+            span {
+                font-weight: bold;
+                color: transparent;
+                -webkit-text-stroke: 1px var(--color-zinc-100);
+                text-stroke: 1px var(--color-zinc-100);
+            }
         }
         .container-skills {
             display: flex;
@@ -65,10 +74,8 @@ const skills = [
                 align-items: center;
                 justify-content: center;
                 gap: 1.5rem;
-                transition: background-color 0.3s;
                 border: 1px solid var(--color-zinc-100);
                 color: var(--color-zinc-100);
-                transition: all 0.3s ease-in-out;
                 width: 150px;
                 height: 150px;
             }
