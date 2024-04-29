@@ -1,4 +1,7 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
+import Header from "../components/header/Headear.astro";
 interface Props {
 	title: string;
 }
@@ -15,37 +18,97 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
-		<slot />
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<style is:global>
+			:root {
+				--color-dark: #000;
+				--color-light: #fff;
+				--color-neutral: #404040;
+
+				--color-zinc-100: #f4f4f5;
+				--color-zinc-200: #e4e4e7;
+				--color-zinc-300: #d4d4d8;
+				--color-zinc-400: #a1a1aa;
+				-color-zinc-500: #71717a;
+				--color-zinc-600: #52525b;
+				--color-zinc-700: #3f3f46;
+				--color-zinc-800: #27272a;
+
+				--font-size-standard: 16px;
+				-fonr-size-small: 0.875rem;
+				--font-size-medium: 1.125rem;
+				--font-size-large: 1.5rem;
+				--font-size-xlarge: 2rem;
+				--font-family-standard: "Victor Mono", monospace;
+
+				--p-5: 0.3125rem;
+				--p-10: 0.625rem;
+				--p-20: 1.25rem;
+				--p-40: 2.5rem;
+				--p-60: 3.75rem;
+
+				--max-width: 1280px;
+				--background-primary: var(--color-zinc-800);
+				--background-gradient-lineal: linear-gradient(
+					to top,
+					var(--color-dark) 0 25%,
+					var(--color-zinc-700) 25% 50%,
+					var(--color-zinc-800) 50% 100%
+				);
+				--background-gradient-lineal: radial-gradient(
+					circle,
+					var(--color-zinc-800) 0%,
+					var(--color-dark) 100%
+				);
+			}
+
+			* {
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background: var(--background-gradient-lineal);
+				color: var(--color-zinc-100);
+
+				font-size: var(--font-size-standard);
+				font-family: var(--font-family-standard);
+
+				height: 100vh;
+
+				max-width: var(--max-width);
+				margin: 0 auto;
+
+				padding: var(--p-20);
+			}
+			h1 {
+				font-size: var(--font-size-xlarge);
+				font-weight: bold;
+				margin-bottom: var(--p-20);
+			}
+			@keyframes slideIn {
+				from {
+					transform: translateX(-100%);
+				}
+				to {
+					transform: translateX(0);
+				}
+			}
+
+			@keyframes slideOut {
+				from {
+					transform: translateX(0);
+				}
+				to {
+					transform: translateX(-100%);
+				}
+			}
+		</style>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

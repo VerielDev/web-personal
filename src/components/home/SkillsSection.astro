@@ -1,0 +1,31 @@
+---
+
+---
+
+<section id="skills-section">
+    <h1>My Skills</h1>
+    <div class="container-skills"></div>
+</section>
+
+<style>
+    #skills-section {
+        text-align: center;
+        margin-top: var(--p-60);
+        .container-skill {
+            .skill {
+                display: inline-block;
+                padding: 0.5rem;
+                transition: background-color 0.3s;
+                border: 1px solid var(--color-zinc-100);
+                color: var(--color-zinc-100);
+                transition: all 0.3s ease-in-out;
+                &:hover {
+                    background-color: var(--color-zinc-600);
+                }
+                &.active {
+                    background-color: var(--color-zinc-600);
+                }
+            }
+        }
+    }
+</style>
