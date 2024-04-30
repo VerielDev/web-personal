@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import Banner from "../../assets/banner-about-no-bg.png";
+const aboutSection = {
+    title: "About <span>Me</span>",
+    description:
+        "Graduado en Física y desarrollador full stack con habilidades sólidas en JavaScript (JS), TypeScript (TS), Java y sistemas de gestión de contenido como Oracle WebCenter Sites (OWCS).<br/> <br/>Mi formación en Física me ha proporcionado una mentalidad analítica y resolutiva, mientras que mi experiencia en desarrollo me permite crear soluciones técnicas eficientes y escalables. <br/> <br/>He trabajado en proyectos desafiantes que requieren un enfoque meticuloso y estratégico para la implementación de sistemas de gestión de contenido que optimicen la experiencia del usuario y la eficiencia operativa. Estoy comprometido a seguir creciendo profesionalmente y aplicar mis habilidades para enfrentar nuevos desafíos en el ámbito del desarrollo de software y la gestión de contenido en línea.",
+};
+const { title, description } = aboutSection;
+---
+
+<section id="about-section">
+    <h1 set:html={title} />
+    <div class="container-about">
+        <div class="text-hero-section">
+            <p set:html={description} />
+        </div>
+        <div class="img-hero-section">
+            <Image
+                src={Banner}
+                alt="Imagen del banner principal"
+                loading={"eager"}
+            />
+        </div>
+    </div>
+</section>
+<style>
+    #about-section {
+        text-align: center;
+        margin-top: var(--p-60);
+        h1 {
+            margin-bottom: var(--p-60);
+
+            span {
+                font-weight: bold;
+                color: transparent;
+                -webkit-text-stroke: 1px var(--color-zinc-100);
+                text-stroke: 1px var(--color-zinc-100);
+            }
+        }
+        .container-about {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            align-items: center;
+            .text-hero-section {
+                flex: 1;
+                text-align: start;
+                h1 {
+                    span {
+                        font-weight: bold;
+                        color: transparent;
+                        -webkit-text-stroke: 1px var(--color-zinc-100);
+                        text-stroke: 1px var(--color-zinc-100);
+                    }
+                }
+                p {
+                    color: var(--text-color);
+                }
+            }
+            .img-hero-section {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                img {
+                    width: 100%;
+                    max-width: 80%;
+                    height: fit-content;
+                    mask-image: linear-gradient(
+                        to bottom,
+                        rgba(0, 0, 0, 1),
+                        rgba(0, 0, 0, 0)
+                    );
+                    background-position: center;
+                    background-blend-mode: overlay, normal;
+                    background-clip: padding-box, border-box;
+                    background-clip: border-box;
+                }
+            }
+
+            @media (max-width: 768px) {
+                flex-direction: column-reverse;
+                .text-hero-section {
+                    text-align: center;
+                    h1 {
+                        font-size: var(--font-size-large);
+                    }
+                }
+                .img-hero-section {
+                    margin-bottom: var(--p-20);
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    img {
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+</style>

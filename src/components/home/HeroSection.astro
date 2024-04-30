@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import SocialBar from "./SocialBar.astro";
+import SocialBar from "../ui/SocialBar.astro";
 import Banner from "../../assets/banner.png";
 
 const textHeroSection = {
@@ -46,7 +46,7 @@ const { title, description } = textHeroSection;
                 }
             }
             p {
-                color: var(--color-zinc-600);
+                color: var(--text-color);
             }
         }
         .img-hero-section {

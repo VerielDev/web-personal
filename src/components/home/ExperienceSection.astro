@@ -1,4 +1,6 @@
 ---
+import CardExperience from "../ui/CardExperience.astro";
+
 const experienceSection = {
     title: "My <span>Experience</span>",
 };
@@ -10,7 +12,7 @@ const experiences = [
         company: "Viewnext S.A",
         date: "Agosto 2021 - Febrero 2023",
         description:
-            "Realización de proyectos y evolutivos Frontend dentro del CMS Oracle Web Center Site (OWCS) para el cliente Naturgy. Además de la realización de tareas de mantenimientos y soporte básicas en el propio CMS.",
+            "Realización de proyectos y evolutivos Frontend dentro del CMS Oracle Web Center Site (OWCS) para el cliente Naturgy. ",
     },
     {
         title: "Desarrollador Full Stack",
@@ -34,12 +36,12 @@ const experiences = [
     <div class="container-experience">
         {
             experiences.map(({ title, company, date, description }) => (
-                <div class="card">
-                    <h3>{title}</h3>
-                    <p>{company}</p>
-                    <p>{date}</p>
-                    <p class="description">{description}</p>
-                </div>
+                <CardExperience
+                    title={title}
+                    company={company}
+                    date={date}
+                    description={description}
+                />
             ))
         }
     </div>
@@ -64,23 +66,6 @@ const experiences = [
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
-            .card {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-
-                border: 1px solid var(--color-zinc-100);
-                color: var(--color-zinc-100);
-                width: 300px;
-                height: 300px;
-                padding: 1rem;
-                .description {
-                    margin-top: var(--p-20);
-                    text-align: start;
-                    color: var(--color-zinc-600);
-                }
-            }
         }
     }
 </style>
