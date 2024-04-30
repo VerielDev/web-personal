@@ -1,6 +1,6 @@
 ---
-import NavBarDesktop from "./NavBarDesktop.astro";
-import NavBarMobile from "./NavBarMobile.astro";
+import NavBarDesktop from "./NavBarDesktop.astro"
+import NavBarMobile from "./NavBarMobile.astro"
 ---
 
 <header id="header">
@@ -158,32 +158,32 @@ import NavBarMobile from "./NavBarMobile.astro";
 </style>
 <script>
     document.addEventListener("astro:page-load", () => {
-        const openMenu = document.querySelector("#open-menu") as HTMLElement;
+        const openMenu = document.querySelector("#open-menu") as HTMLElement
 
-        window.innerWidth <= 768
+    window.innerWidth <= 768
             ? (openMenu.style.display = "block")
-            : (openMenu.style.display = "none");
+            : (openMenu.style.display = "none")
 
-        const closeMenu = document.querySelector("#close-menu") as HTMLElement;
-        const navBarMobile = document.querySelector(
+    const closeMenu = document.querySelector("#close-menu") as HTMLElement
+    const navBarMobile = document.querySelector(
             "#nav-bar-mobile",
-        ) as HTMLElement;
+        ) as HTMLElement
 
-        openMenu.addEventListener("click", () => {
-            toggleMenu(true);
-        });
-        closeMenu.addEventListener("click", () => {
-            toggleMenu(false);
-        });
+    openMenu.addEventListener("click", () => {
+            toggleMenu(true)
+    })
+    closeMenu.addEventListener("click", () => {
+            toggleMenu(false)
+    })
 
-        function toggleMenu(isOpen: boolean) {
-            navBarMobile.style.animation = "";
-            document.body.style.overflow = isOpen ? "hidden" : "auto";
-            navBarMobile.style.display = isOpen ? "block" : "none";
-            navBarMobile.style.animation = isOpen
+    function toggleMenu(isOpen: boolean) {
+            navBarMobile.style.animation = ""
+        document.body.style.overflow = isOpen ? "hidden" : "auto"
+        navBarMobile.style.display = isOpen ? "block" : "none"
+        navBarMobile.style.animation = isOpen
                 ? "slideIn 0.8s forwards"
-                : "slideOut 0.8s forwards";
-            closeMenu.style.display = isOpen ? "block" : "none";
-        }
-    });
+                : "slideOut 0.8s forwards"
+        closeMenu.style.display = isOpen ? "block" : "none"
+    }
+    })
 </script>

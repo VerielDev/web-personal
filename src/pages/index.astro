@@ -1,9 +1,9 @@
 ---
-import AboutMeSection from "../components/home/AboutMeSection.astro";
-import ExperienceSection from "../components/home/ExperienceSection.astro";
-import HeroSection from "../components/home/HeroSection.astro";
-import SkillsSection from "../components/home/SkillsSection.astro";
-import Layout from "../layouts/Layout.astro";
+import AboutMeSection from "@/components/home/AboutMeSection.astro"
+import ExperienceSection from "@/components/home/ExperienceSection.astro"
+import HeroSection from "@/components/home/HeroSection.astro"
+import SkillsSection from "@/components/home/SkillsSection.astro"
+import Layout from "@/layouts/Layout.astro"
 ---
 
 <Layout title="Welcome to Astro.">
@@ -12,25 +12,3 @@ import Layout from "../layouts/Layout.astro";
 	<ExperienceSection />
 	<AboutMeSection />
 </Layout>
-
-<script>
-	document.addEventListener("astro:page-load", () => {
-		const sections = document.querySelectorAll("section");
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add("appear");
-					} else {
-						entry.target.classList.remove("appear");
-					}
-				});
-			},
-			{ threshold: 0.5 },
-		);
-		sections.forEach((section) => {
-			observer.observe(section);
-		});
-	});
-</script>

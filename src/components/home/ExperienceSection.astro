@@ -1,10 +1,10 @@
 ---
-import CardExperience from "../ui/CardExperience.astro";
+import CardExperience from "../ui/CardExperience.astro"
 
 const experienceSection = {
     title: "My <span>Experience</span>",
-};
-const { title } = experienceSection;
+}
+const { title } = experienceSection
 
 const experiences = [
     {
@@ -28,7 +28,7 @@ const experiences = [
         description:
             "Algoritmos predictivos y análisis de datos dentro el modelo 3D.",
     },
-];
+]
 ---
 
 <section id="experience-section">
@@ -69,3 +69,12 @@ const experiences = [
         }
     }
 </style>
+
+<script>
+	import { animationAppearElements } from "@/libs/utils.ts"
+
+	document.addEventListener("astro:page-load", () => {
+			animationAppearElements(".card")
+		}
+	)
+</script>

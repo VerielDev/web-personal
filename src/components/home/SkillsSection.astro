@@ -1,21 +1,21 @@
 ---
-import JavaScript from "../svg/JavaScript.astro";
-import TypeScript from "../svg/TypeScript.astro";
-import Nest from "../svg/Nest.astro";
-import React from "../svg/React.astro";
-import Next from "../svg/Next.astro";
-import NodeJs from "../svg/NodeJs.astro";
-import Express from "../svg/Express.astro";
-import Java from "../svg/Java.astro";
-import Tailwind from "../svg/Tailwind.astro";
-import AstroLogo from "../svg/AstroLogo.astro";
-import Spring from "../svg/Spring.astro";
-import Oracle from "../svg/Oracle.astro";
+import JavaScript from "../svg/JavaScript.astro"
+import TypeScript from "../svg/TypeScript.astro"
+import Nest from "../svg/Nest.astro"
+import React from "../svg/React.astro"
+import Next from "../svg/Next.astro"
+import NodeJs from "../svg/NodeJs.astro"
+import Express from "../svg/Express.astro"
+import Java from "../svg/Java.astro"
+import Tailwind from "../svg/Tailwind.astro"
+import AstroLogo from "../svg/AstroLogo.astro"
+import Spring from "../svg/Spring.astro"
+import Oracle from "../svg/Oracle.astro"
 
 const skillsSection = {
     title: "My <span>Skills</span>",
-};
-const { title } = skillsSection;
+}
+const { title } = skillsSection
 const skills = [
     { title: "JavaScript", icon: JavaScript },
     { title: "TypeScript", icon: TypeScript },
@@ -29,7 +29,7 @@ const skills = [
     { title: "Astro", icon: AstroLogo },
     { title: "Spring", icon: Spring },
     { title: "OWCS", icon: Oracle },
-];
+]
 ---
 
 <section id="skills-section">
@@ -87,3 +87,11 @@ const skills = [
         }
     }
 </style>
+<script>
+	import { animationAppearElements } from "@/libs/utils.ts"
+
+	document.addEventListener("astro:page-load", () => {
+			animationAppearElements(".skill")
+		}
+	)
+</script>
