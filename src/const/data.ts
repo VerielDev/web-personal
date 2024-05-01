@@ -40,3 +40,7 @@ export const aboutSection = {
 	description:
 		"Graduado en Física y desarrollador full stack con habilidades sólidas en JavaScript (JS), TypeScript (TS), Java y sistemas de gestión de contenido como Oracle WebCenter Sites (OWCS).<br/> <br/>Mi formación en Física me ha proporcionado una mentalidad analítica y resolutiva, mientras que mi experiencia en desarrollo me permite crear soluciones técnicas eficientes y escalables. <br/> <br/>He trabajado en proyectos desafiantes que requieren un enfoque meticuloso y estratégico para la implementación de sistemas de gestión de contenido que optimicen la experiencia del usuario y la eficiencia operativa. Estoy comprometido a seguir creciendo profesionalmente y aplicar mis habilidades para enfrentar nuevos desafíos en el ámbito del desarrollo de software y la gestión de contenido en línea.",
 }
+
+export const projectsSection = {
+	title: "My <span>Projects</span>",
+}

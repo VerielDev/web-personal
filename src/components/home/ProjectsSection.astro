@@ -1,0 +1,156 @@
+---
+import CardProject from "../ui/CardProject.astro"
+import { projectsSection } from "@/const/data"
+
+import GitHub from "@/components/svg/GitHub.astro"
+
+import IconBook from "@/components/svg/IconBook.astro"
+import IconExternalLink from "@/components/svg/IconExternalLink.astro"
+
+const { title } = projectsSection
+interface TypePropjects {
+	title: string
+	description: string
+	github?: string
+	demo?: string
+	article?: string
+}
+const projects: TypePropjects[] = [
+	{
+		title: "To Do React ",
+		description: "Listado de tareas realizada en React",
+		github: "https://github.com/samuraiOrDev/To-Do-React",
+		demo: "https://tod-do-react.vercel.app/",
+		article: "#project-1"
+	},
+	{
+		title: "Portfolio Web",
+		description: "Portafolio web realizado en NextJS",
+		github: "https://github.com/samuraiOrDev/samuraiordev.vercel.app/",
+		demo: "https://samuraiordev.vercel.app/",
+		article: "#project-2"
+	},
+	{
+		title: "Pokedex",
+		description: "Pokedex realizado en NextJs",
+		github: "https://github.com/samuraiOrDev/samuraiordev.vercel.app/",
+		demo: "https://pokedex-samuraiordev.vercel.app/",
+		article: "#project-3"
+	},
+	{
+        title: "Blog Personal",
+        description: "Un blog personal donde puedes compartir tus pensamientos y experiencias.",
+    },
+    {
+        title: "E-commerce App",
+        description: "Una aplicación de comercio electrónico donde los usuarios pueden comprar y vender productos.",
+    },
+    {
+        title: "Gestor de Finanzas",
+        description: "Una herramienta para gestionar tus finanzas personales, realizar seguimiento de gastos e ingresos.",
+				github: "https://github.com/samuraiOrDev/GestorFianzas",
+    },
+    {
+        title: "Plataforma de Aprendizaje",
+        description: "Una plataforma educativa en línea que ofrece cursos sobre una variedad de temas.",
+				demo: "https://pokedex-samuraiordev.vercel.app/",
+				article: "#project-4"
+    },
+    {
+        title: "App de Recetas",
+        description: "Una aplicación donde puedes descubrir y compartir recetas de cocina.",
+        demo: "https://pokedex-samuraiordev.vercel.app/",
+				article: "#project-4"
+    },
+]
+---
+
+<section id="projects-section">
+	<h1 set:html={title} />
+	<div class="container-projects">
+		{
+			projects.map((project) => (
+				<div class="project">
+					<h3>{project.title}</h3>
+					<p class="description">{project.description}</p>
+					<ul class="links">
+						<CardProject href={project.github} icon={GitHub} />
+						<CardProject href={project.demo} icon={IconExternalLink} />
+						<CardProject href={project.article} icon={IconBook} />
+					</ul>
+				</div>
+			))
+		}
+	</div>
+</section>
+<style>
+	#projects-section {
+			text-align: center;
+			margin-top: var(--p-60);
+			h1 {
+					span {
+							font-weight: bold;
+							color: transparent;
+							-webkit-text-stroke: 1px var(--color-zinc-100);
+							text-stroke: 1px var(--color-zinc-100);
+					}
+			}
+			.container-projects {
+				margin-top: var(--p-60);
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 1rem;
+				.project {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					justify-content: flex-start;
+					border: 1px solid var(--color-zinc-100);
+					width: 300px;
+					height: fit-content;
+					/* border-radius: var(--p-10); */
+
+					box-shadow:
+							0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur)
+									var(--card-box-shadow-1),
+							0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur)
+									var(--card-box-shadow-2),
+							0 0 0 1px var(--card-border-color);
+					padding: 1rem;
+					transition: all 0.3s ease-in-out;
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 4px var(--color-zinc-100);
+                }
+					.description {
+						margin-top: var(--p-10);
+            text-align: start;
+            color: var(--text-color);
+					}
+					.links {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: 1rem;
+						list-style: none;
+						margin-top: var(--p-20);
+						padding: 0;
+						width: 100%;
+						@media (max-width: 768px) {
+								justify-content: center;
+						}
+					}
+				}
+			}
+	}
+</style>
+
+<script>
+	import { animationAppearElements } from "@/libs/utils.ts"
+
+	document.addEventListener("astro:page-load", () => {
+			animationAppearElements(".project")
+		}
+	)
+</script>

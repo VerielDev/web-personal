@@ -1,0 +1,48 @@
+---
+interface Project {
+	href: string
+	icon: any
+}
+const { href, icon: Icon } = Astro.props as Project
+---
+
+{
+	href ? (
+		<li>
+			<a href={href} target="_blank" rel="noopener noreferrer" class="link">
+				<Icon />
+			</a>
+		</li>
+	) : (
+		<li>
+				<span class="link">
+					<Icon />
+				</span>
+		</li>
+	)
+}
+
+<style>
+	li {
+		a.link {
+				display: inline-block;
+				padding: 0.5rem;
+				transition: background-color 0.3s;
+				border: 1px solid var(--color-zinc-100);
+				color: var(--color-zinc-100);
+				transition: all 0.3s ease-in-out;
+				text-decoration: none;
+				&:hover {
+						background-color: var(--color-zinc-600);
+				}
+		}
+		span.link {
+				display: inline-block;
+				padding: 0.5rem;
+				border: 1px solid var(--color-zinc-700);
+				color: var(--color-zinc-700);
+				background-color: transparent;
+				text-decoration: none;
+		}
+	}
+</style>
