@@ -7,7 +7,7 @@ import NavBarMobile from "./NavBarMobile.astro"
     <div class="logo">
         <a href="/">
             <img src="/logo.svg" title="Logo" alt="Logo" />
-            VMOrdiales
+						<span>Veriel.Dev</span>
         </a>
     </div>
     <div id="open-menu">
@@ -49,6 +49,13 @@ import NavBarMobile from "./NavBarMobile.astro"
                 align-items: center;
                 justify-content: flex-start;
                 gap: var(--p-10);
+								img {
+									width: fit-content;
+									height: 40px;
+								}
+								span {
+									margin-top: var(--p-20);
+								}
             }
         }
         #open-menu {
@@ -63,6 +70,7 @@ import NavBarMobile from "./NavBarMobile.astro"
             justify-content: space-between;
             gap: var(--p-20);
             list-style: none;
+						margin-top: var(--p-20);
 
             li {
                 a {
