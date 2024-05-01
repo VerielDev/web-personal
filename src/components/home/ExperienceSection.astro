@@ -1,34 +1,11 @@
 ---
+
 import CardExperience from "../ui/CardExperience.astro"
 
-const experienceSection = {
-    title: "My <span>Experience</span>",
-}
+import { experienceSection, experiences } from "@/const/data"
+
 const { title } = experienceSection
 
-const experiences = [
-    {
-        title: "Desarrollador OWCS",
-        company: "Viewnext S.A",
-        date: "Agosto 2021 - Febrero 2023",
-        description:
-            "Realización de proyectos y evolutivos Frontend dentro del CMS Oracle Web Center Site (OWCS) para el cliente Naturgy. ",
-    },
-    {
-        title: "Desarrollador Full Stack",
-        company: "Viewnext S.A",
-        date: "Febero 2023 - Actualidad",
-        description:
-            "Relización de proyectos y evolutivos Full para el cliente Naturgy. Todo esto hacienco uso de Spring Framework para el Backend y OWCS como CMS.",
-    },
-    {
-        title: "I + D",
-        company: "eCapure3D S.L",
-        date: "Abril 2021 - Junio 2021",
-        description:
-            "Algoritmos predictivos y análisis de datos dentro el modelo 3D.",
-    },
-]
 ---
 
 <section id="experience-section">
