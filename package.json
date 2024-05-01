@@ -15,7 +15,8 @@
     "format:check": "prettier --check src"
   },
   "dependencies": {
-    "astro": "4.7.0"
+    "astro": "4.7.0",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.43.1",

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import Banner from "@/assets/banner-about-no-bg.png"
+import BannerAbout from "@/assets/banner-about.png"
 
 import { aboutSection } from "@/const/data"
 
@@ -15,7 +15,7 @@ const { title, description } = aboutSection
         </div>
         <div class="img-hero-section">
             <Image
-                src={Banner}
+                src={BannerAbout}
                 alt="Imagen del banner principal"
                 loading={"eager"}
             />
