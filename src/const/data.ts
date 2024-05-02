@@ -44,3 +44,7 @@ export const aboutSection = {
 export const projectsSection = {
 	title: "My <span>Projects</span>",
 }
+
+export const testimonialSection = {
+	title: "My <span>Testimonial</span>",
+}

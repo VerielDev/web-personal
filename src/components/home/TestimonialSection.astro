@@ -1,0 +1,147 @@
+---
+import IconQuote from "../svg/IconQuote.astro"
+import { testimonialSection } from "@/const/data"
+
+const { title } = testimonialSection
+
+const testimonial = [
+	{
+		imgSrc: "https://via.placeholder.com/150",
+		text: "I recently had to jump on 10+ different calls across eight different countries to find the right owner.",
+		name: "John Doe",
+		position: "CEO, Company",
+	},
+	{
+		imgSrc: "https://via.placeholder.com/150",
+		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
+		name: "Jane Smith",
+		position: "CTO, Another Company",
+	},
+	{
+		imgSrc: "https://via.placeholder.com/150",
+		text: "Praesent malesuada arcu nibh, ac suscipit nisi maximus ut.",
+		name: "Alice Johnson",
+		position: "Marketing Director, New Ventures",
+	},
+]
+---
+
+<section id="testimonial-section">
+	<h1 set:html={title} />
+	<div class="container-testimonial">
+		{
+			testimonial.map((testimonial) => (
+				<div class="testimonial">
+					<div class="img-person">
+						<img src={testimonial.imgSrc} alt="person" loading="lazy" />
+						<IconQuote height={24} width={24} fill="#000" fillBg="#fff" />
+					</div>
+					<p class="text-person">{testimonial.text}</p>
+					<div class="name-person">
+						<h3>{testimonial.name}</h3>
+						<p>{testimonial.position}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>
+<style>
+	#testimonial-section {
+		text-align: center;
+		margin-top: var(--p-60);
+		h1 {
+			span {
+				font-weight: bold;
+				color: transparent;
+				-webkit-text-stroke: 1px var(--color-zinc-100);
+				text-stroke: 1px var(--color-zinc-100);
+			}
+		}
+		.container-testimonial {
+			margin-top: var(--p-60);
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1rem;
+			.testimonial {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+				border: 1px solid var(--color-zinc-100);
+				width: 300px;
+				height: fit-content;
+				/* border-radius: var(--p-10); */
+				box-shadow:
+					0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur)
+						var(--card-box-shadow-1),
+					0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur)
+						var(--card-box-shadow-2),
+					0 0 0 1px var(--card-border-color);
+				padding: 1rem;
+				transition: all 0.3s ease-in-out;
+				&:hover {
+					box-shadow:
+						0px var(--card-box-shadow-1-y-hover)
+							var(--card-box-shadow-1-blur-hover) var(--card-box-shadow-1),
+						0px var(--card-box-shadow-2-y-hover)
+							var(--card-box-shadow-2-blur-hover) var(--card-box-shadow-2),
+						0 0 0 1px var(--card-border-color-hover);
+					transform: scale(1.03);
+				}
+				.img-person {
+					width: 80px;
+					height: 80px;
+					border-radius: 50%;
+					margin: 0 auto;
+					overflow: hidden;
+					margin-top: var(--p-5);
+					margin-bottom: var(--p-5);
+					position: relative;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+					svg {
+						position: absolute;
+						top: 46px;
+						right: 5px;
+					}
+				}
+				.text-person {
+					margin-top: var(--p-10);
+					margin-bottom: var(--p-10);
+					text-align: center;
+					color: var(--text-color);
+					position: relative;
+					&::before {
+						content: "";
+						background-color: var(--color-zinc-100);
+						position: absolute;
+						bottom: 0;
+						bottom: -20px;
+						left: 50%;
+						transform: translateX(-50%);
+						height: 2px;
+						width: 25%;
+					}
+				}
+				.name-person {
+					margin: 0 auto;
+					margin-top: 30px;
+					margin-bottom: var(--p-10);
+				}
+			}
+		}
+	}
+</style>
+<script>
+	import animationAppear from "@/libs/utils"
+
+document.addEventListener("DOMContentLoaded", () => {
+		animationAppear("#testimonial-section")
+})
+</script>
