@@ -31,8 +31,10 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "never"
+      "source.organizeImports": "always",
+      "source.fixAll.eslint": "always"
     }
   },
-  "prettier.documentSelectors": ["**/*.astro"]
+  "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.semi": false
 }
