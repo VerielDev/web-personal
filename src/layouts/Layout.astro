@@ -1,10 +1,8 @@
 ---
-import { ViewTransitions } from "astro:transitions"
-
-import Header from "@/components/header/Headear.astro"
-import Footer from "@/components/footer/Footer.astro"
-import "@/css/global.css"
 import AstroSEO from "@/components/AstroSEO.astro"
+import Footer from "@/components/footer/Footer.astro"
+import Header from "@/components/header/Headear.astro"
+import "@/css/global.css"
 
 interface Props {
 	title: string
@@ -19,8 +17,12 @@ const { title, description, canonical, image } = Astro.props
 <!doctype html>
 <html lang="es">
 	<head>
-		<AstroSEO title={title} description={description} canonical={canonical} image={image} />
-		<ViewTransitions />
+		<AstroSEO
+			title={title}
+			description={description}
+			canonical={canonical}
+			image={image}
+		/>
 	</head>
 	<body>
 		<Header />

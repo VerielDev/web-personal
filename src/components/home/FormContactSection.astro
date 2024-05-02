@@ -1,0 +1,135 @@
+---
+import { formContactSection } from "@/const/data"
+
+const { title, subTitle } = formContactSection
+---
+<section id="container-form-contact-section">
+	<h1 set:html={title} />
+	<div class="form-contact-section">
+		<form class="form" method="" action="">
+			<div class="form-group">
+				<input type="text" id="name" name="name" placeholder="Your name" />
+			</div>
+			<div class="form-group">
+				<input type="email" id="email" name="email" placeholder="Email" />
+			</div>
+			<div class="form-group">
+				<input type="tel" id="phone" name="phone" placeholder="Email" />
+			</div>
+			<div class="form-group">
+				<input
+					type="text"
+					id="web-site"
+					name="website"
+					placeholder="Your website (if exists)"
+				/>
+			</div>
+			<div class="form-group">
+				<textarea
+					name="message"
+					id="message"
+					rows="5"
+					placeholder="How can i help?"></textarea>
+			</div>
+		</form>
+		<div class="form-description">
+			<h2 set:html={subTitle}></h2>
+			<p>
+				You have a project in mind? Let's talk about it. It would be a pleasure
+				to help you to make it real.
+			</p>
+			<div class="links">
+				<a href="#a">Youemail@gmail.com</a>
+				<a href="#a">685394859</a>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+
+#container-form-contact-section {
+		text-align: center;
+		margin-top: var(--p-60);
+		h2, h1 {
+			span {
+				font-weight: bold;
+				color: transparent;
+				-webkit-text-stroke: 1px var(--color-zinc-100);
+				text-stroke: 1px var(--color-zinc-100);
+			}
+		}
+		.form-contact-section {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			margin-top: var(--p-40);
+			gap: 2rem;
+			.form {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				gap: 1em;
+				.form-group {
+					width: 100%;
+					max-width: 450px;
+					input,
+					textarea {
+						width: 100%;
+						padding: var(--p-10);
+						background: transparent;
+						border: none;
+						border: 1px solid var(--color-zinc-100);
+						color: : var(--color-zinc-100);
+					}
+				}
+			}
+			.form-description{
+				flex: 1;
+				text-align: start;
+
+				h2 {
+					font-size: var(--font-size-xlarge);
+					font-weight: bold;
+					margin-bottom: var(--p-20);
+				}
+				p {
+					color: var(--color-zinc-100);
+					margin-top: var(--p-20);
+				}
+				.links {
+					display: flex;
+					justify-content: flex-start;
+					margin-top: var(--p-20);
+					gap: 1rem;
+					a {
+						color: var(--color-zinc-100);
+						text-decoration: none;
+						&:hover {
+							color: var(--color-zinc-100);
+						}
+					}
+				}
+			}
+			@media screen and (max-width: 768px) {
+					flex-direction: column-reverse;
+					.form {
+						width: 100%;
+						.form-group {
+							width: 100%;
+							max-width: 100%;
+						}
+					}
+					.form-description {
+							margin-top: var(--p-20);
+							text-align: center;
+						.links {
+							justify-content: center;
+						}
+					}
+				}
+			}
+	}
+</style>

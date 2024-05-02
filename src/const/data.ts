@@ -48,3 +48,7 @@ export const projectsSection = {
 export const testimonialSection = {
 	title: "My <span>Testimonial</span>",
 }
+export const formContactSection = {
+	title: "My <span>Contact</span>",
+	subTitle: "<span>Let's</span> talk <span>for Something special</span>",
+}
