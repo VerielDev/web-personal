@@ -12,11 +12,13 @@
     "lint": "eslint --ext .astro,.ts,.js,.tsx .",
     "lint:fix": "eslint --ext .astro,.ts,.js,.tsx . --fix",
     "format": "prettier --write src",
-    "format:check": "prettier --check src"
+    "format:check": "prettier --check src",
+    "vitest": "vitest"
   },
   "dependencies": {
     "astro": "4.7.0",
-    "sharp": "^0.33.3"
+    "sharp": "0.33.3",
+    "vitest": "1.5.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.43.1",

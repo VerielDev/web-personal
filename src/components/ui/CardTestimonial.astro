@@ -1,0 +1,97 @@
+---
+import IconQuote from "../svg/IconQuote.astro"
+
+interface Props {
+	imgSrc: string
+	text: string
+	name: string
+	position: string
+}
+
+const { imgSrc, text, name, position } = Astro.props as Props
+---
+
+<div class="testimonial">
+	<div class="img-person">
+		<img src={imgSrc} alt="person" loading="lazy" />
+		<IconQuote height={24} width={24} fill="#000" fillBg="#fff" />
+	</div>
+	<p class="text-person">{text}</p>
+	<div class="name-person">
+		<h3>{name}</h3>
+		<p>{position}</p>
+	</div>
+</div>
+<style>
+	.testimonial {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		border: 1px solid var(--color-zinc-100);
+		width: 300px;
+		height: fit-content;
+		/* border-radius: var(--p-10); */
+		box-shadow:
+			0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur)
+				var(--card-box-shadow-1),
+			0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur)
+				var(--card-box-shadow-2),
+			0 0 0 1px var(--card-border-color);
+		padding: 1rem;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			box-shadow:
+				0px var(--card-box-shadow-1-y-hover) var(--card-box-shadow-1-blur-hover)
+					var(--card-box-shadow-1),
+				0px var(--card-box-shadow-2-y-hover) var(--card-box-shadow-2-blur-hover)
+					var(--card-box-shadow-2),
+				0 0 0 1px var(--card-border-color-hover);
+			transform: scale(1.03);
+		}
+		.img-person {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			margin: 0 auto;
+			overflow: hidden;
+			margin-top: var(--p-5);
+			margin-bottom: var(--p-5);
+			position: relative;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			svg {
+				position: absolute;
+				top: 46px;
+				right: 5px;
+			}
+		}
+		.text-person {
+			margin-top: var(--p-10);
+			margin-bottom: var(--p-10);
+			text-align: center;
+			color: var(--text-color);
+			position: relative;
+			&::before {
+				content: "";
+				background-color: var(--color-zinc-100);
+				position: absolute;
+				bottom: 0;
+				bottom: -20px;
+				left: 50%;
+				transform: translateX(-50%);
+				height: 2px;
+				width: 25%;
+			}
+		}
+		.name-person {
+			margin: 0 auto;
+			margin-top: 30px;
+			margin-bottom: var(--p-10);
+		}
+	}
+</style>

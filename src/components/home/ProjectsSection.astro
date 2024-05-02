@@ -79,9 +79,21 @@ const projects: TypePropjects[] = [
 					<h3>{project.title}</h3>
 					<p class="description">{project.description}</p>
 					<ul class="links">
-						<CardProject href={project.github} icon={GitHub} />
-						<CardProject href={project.demo} icon={IconExternalLink} />
-						<CardProject href={project.article} icon={IconBook} />
+						<CardProject
+							href={project.github}
+							icon={GitHub}
+							title="Acceso Github"
+						/>
+						<CardProject
+							href={project.demo}
+							icon={IconExternalLink}
+							title="Acceso Demo"
+						/>
+						<CardProject
+							href={project.article}
+							icon={IconBook}
+							title="Acceso Article"
+						/>
 					</ul>
 				</div>
 			))
