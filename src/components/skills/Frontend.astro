@@ -11,15 +11,19 @@ import WebComponent from "../svg/WebComponent.astro"
 import CardFrontend from "./frontend/CardFrontend.astro"
 
 const elements = [
-	{ title: "JavaScript", icon: JavaScript },
-	{ title: "HTML5", icon: Html },
-	{ title: "WebComponet", icon: WebComponent },
-	{ title: "CSS3", icon: Css },
-	{ title: "VCS", icon: Vcs },
-	{ title: "Package Managers", icon: Package },
-	{ title: "Frameworks", icon: FrameWorks },
-	{ title: "Build Tools", icon: Gear },
-	{ title: "Testing", icon: Testing },
+	{ title: "JavaScript", icon: JavaScript, dataAttribute: "child-1" },
+	{ title: "HTML5", icon: Html, dataAttribute: "child-2" },
+	{ title: "CSS3", icon: Css, dataAttribute: "child-3" },
+	{ title: "WebComponet", icon: WebComponent, dataAttribute: "child-4" },
+	{ title: "VCS", icon: Vcs, dataAttribute: "child-5" },
+	{
+		title: "Package Managers",
+		icon: Package,
+		dataAttribute: "child-6",
+	},
+	{ title: "Frameworks", icon: FrameWorks, dataAttribute: "child-7" },
+	{ title: "Build Tools", icon: Gear, dataAttribute: "child-8" },
+	{ title: "Testing", icon: Testing, dataAttribute: "child-9" },
 ]
 ---
 
@@ -27,8 +31,8 @@ const elements = [
 
 <div class="container">
 	{
-		elements.map(({ title, icon }) => (
-			<CardFrontend title={title} icon={icon} />
+		elements.map(({ title, icon, dataAttribute }) => (
+			<CardFrontend title={title} icon={icon} dataAttribute={dataAttribute} />
 		))
 	}
 </div>

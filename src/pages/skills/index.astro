@@ -2,6 +2,15 @@
 import Layout from "@/layouts/Layout.astro"
 import Frontend from "@/components/skills/Frontend.astro"
 import Modal from "@/components/ui/Modal.astro"
+import JsComponent from "@/components/skills/frontend/js/JsComponent.astro"
+import HtmlComponent from "@/components/skills/frontend/html/HtmlComponent.astro"
+import CssComponent from "@/components/skills/frontend/css/CssComponent.astro"
+import WebComponent from "@/components/skills/frontend/web/WebComponent.astro"
+import VcsComponent from "@/components/skills/frontend/vcs/VcsComponent.astro"
+import PackagesComponent from "@/components/skills/frontend/packages/PackagesComponent.astro"
+import Frameworks from "@/components/skills/frontend/frameworks/FrameWorks.astro"
+import BuildTools from "@/components/skills/frontend/buildTools/BuildTools.astro"
+import Testing from "@/components/skills/frontend/testing/Testing.astro"
 
 const title = "My <span>Skills</span>"
 ---
@@ -13,7 +22,33 @@ const title = "My <span>Skills</span>"
 >
 	<section id="skills">
 		<Modal>
-			<h1>Modal Genérico</h1>
+			<div slot="JavaScript" data-content="child-1" style="display: none">
+				<JsComponent />
+			</div>
+			<div slot="HTML5" data-content="child-2" style="display: none">
+				<HtmlComponent />
+			</div>
+			<div slot="CSS3" data-content="child-3" style="display: none">
+				<CssComponent />
+			</div>
+			<div slot="WebComponent" data-content="child-4" style="display: none">
+				<WebComponent />
+			</div>
+			<div slot="VCS" data-content="child-5" style="display: none">
+				<VcsComponent />
+			</div>
+			<div slot="PackageManagers" data-content="child-6" style="display: none">
+				<PackagesComponent />
+			</div>
+			<div slot="Frameworks" data-content="child-7" style="display: none">
+				<Frameworks />
+			</div>
+			<div slot="BuildTools" data-content="child-8" style="display: none">
+				<BuildTools />
+			</div>
+			<div slot="Testing" data-content="child-9" style="display: none">
+				<Testing />
+			</div>
 		</Modal>
 		<div class="title">
 			<h1 set:html={title} />
@@ -23,7 +58,7 @@ const title = "My <span>Skills</span>"
 			</p>
 		</div>
 		<div class="container-skills">
-			<Frontend data-attribute="frontend" />
+			<Frontend />
 		</div>
 	</section>
 </Layout>
