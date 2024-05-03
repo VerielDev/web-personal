@@ -31,7 +31,7 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always",
+      "source.organizeImports": "never",
       "source.fixAll.eslint": "always"
     }
   },

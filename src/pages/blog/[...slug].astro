@@ -1,0 +1,198 @@
+---
+import type { CollectionEntry } from "astro:content"
+import { getCollection } from "astro:content"
+import FormattedDate from "@/components/blog/FormattedDate.astro"
+import Layout from "@/layouts/Layout.astro"
+
+export const prerender = true
+export async function getStaticPaths() {
+	const posts = await getCollection("blog")
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}))
+}
+type Props = CollectionEntry<"blog">
+const post = Astro.props
+const { heroImage, pubDate, updatedDate, title, description } = post.data
+const { Content } = await post.render()
+---
+
+<Layout title={title} description={description} image={heroImage}>
+	<article>
+		<div class="hero-image">
+			{heroImage && <img src={heroImage} alt="" />}
+		</div>
+		<div class="prose">
+			<div class="title">
+				<div class="date">
+					<FormattedDate date={pubDate} />
+					{
+						updatedDate && (
+							<div class="last-updated-on">
+								Last updated on <FormattedDate date={updatedDate} />
+							</div>
+						)
+					}
+				</div>
+				<h1>{title}</h1>
+				<hr />
+			</div>
+			<Content />
+		</div>
+	</article>
+</Layout>
+
+<style is:global>
+	body {
+		scroll-behavior: smooth;
+		overflow: auto;
+		scrollbar-width: auto;
+	}
+	body::-webkit-scrollbar {
+		width: 0.8rem;
+	}
+	body::-webkit-scrollbar-thumb {
+		background-color: #222;
+		border-radius: 10px;
+	}
+	body::-webkit-scrollbar-track {
+		background-color: #333;
+	}
+
+	.text-gradient {
+		background: linear-gradient(
+			90deg,
+			rgb(202 138 4 /1) 2.34%,
+			#420380 100.78%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.hero-image {
+		width: 960px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 1em;
+		margin-top: var(--p-60);
+	}
+	.hero-image img {
+		width: 100%;
+		max-width: calc(100% - 2em);
+		display: block;
+		margin: 0 auto;
+		border-radius: 12px;
+	}
+	.prose {
+		width: 960px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 1em;
+	}
+	.prose p {
+		margin-bottom: 2em;
+	}
+	.title {
+		margin-bottom: 1em;
+		padding: 1em 0;
+		text-align: center;
+		line-height: 1;
+	}
+	.title h1 {
+		margin: 0 0 0.5em 0;
+	}
+	.date {
+		text-align: start;
+		margin-bottom: 0.5em;
+	}
+	.last-updated-on {
+		font-style: italic;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin: 0 0 0.5rem 0;
+		line-height: 1.2;
+		color: #efb810;
+	}
+	h1 {
+		background: linear-gradient(
+			90deg,
+			rgb(202 138 4 /1) 2.34%,
+			#420380 100.78%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-size: 3rem;
+		line-height: 1;
+		font-weight: bold;
+		margin-bottom: 2.5rem;
+		margin-top: 2.5rem;
+		text-align: start;
+	}
+	h2 {
+		font-size: 1.875rem /* 30px */;
+		line-height: 2.25rem /* 36px */;
+		margin-top: 2.5rem /* 40px */;
+		font-weight: bold;
+		background: linear-gradient(
+			90deg,
+			rgb(202 138 4 /1) 2.34%,
+			#420380 100.78%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	h3 {
+		font-size: 1.953em;
+	}
+	h4 {
+		font-size: 1.563em;
+	}
+	h5 {
+		font-size: 1.25em;
+	}
+	strong,
+	b {
+		font-weight: 700;
+	}
+	code {
+		padding: 2px 5px;
+		border-radius: 2px;
+		color: rgb(202 138 4 /1);
+		background-color: #222;
+	}
+	pre {
+		padding: 1.5em;
+		border-radius: 8px;
+	}
+	pre > code {
+		all: unset;
+	}
+	blockquote {
+		padding: 0 0 0 20px;
+		margin: 0px;
+		font-size: 1.333em;
+	}
+	p {
+		margin-top: 1.25rem /* 20px */;
+		margin-bottom: 0.5rem /* 8px */;
+		text-align: start;
+		font-size: 1.125rem /* 18px */;
+		line-height: 1.75rem /* 28px */;
+	}
+	ul {
+		margin-left: 1.25rem;
+	}
+	ul li {
+		list-style-type: disc;
+		margin-bottom: 0.5rem;
+	}
+</style>

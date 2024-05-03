@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content"
+import CardBlog from "@/components/ui/CardBlog.astro"
+import Layout from "@/layouts/Layout.astro"
+
+const title = "Mi <span>Blog</span>"
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+)
+---
+
+<Layout
+	title="Blog Page | Víctor Manuel Ordiales García"
+	description="Blog personal de Víctor Mnauel Ordiales García. Desarrollador de software, apasionado de la tecnología y la programación."
+	canonical="https://veriel.dev"
+>
+	<section id="blog">
+		<div class="title">
+			<h1 set:html={title} />
+			<p class="subtitle">
+				En esta sección encontrarás una selección de artículos sobre diversos
+				temas de interés. ¡Espero que los disfrutes! 🚀
+			</p>
+		</div>
+		<div class="container-blog">
+			{
+				posts.map((post) => (
+					<CardBlog
+						title={post.data.title}
+						description={post.data.description}
+						slug={post.slug}
+					/>
+				))
+			}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	#blog {
+		text-align: center;
+		margin-top: var(--p-60);
+		h1 {
+			span {
+				font-weight: bold;
+				color: transparent;
+				-webkit-text-stroke: 1px var(--color-zinc-100);
+				text-stroke: 1px var(--color-zinc-100);
+			}
+		}
+		.subtitle {
+			margin-top: var(--p-20);
+			margin: 0 auto;
+			margin-bottom: var(--p-40);
+			font-size: var(--fz-20);
+			color: var(--text-color);
+			text-align: center;
+			width: 60%;
+		}
+		.container-blog {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+		@media screen and (max-width: 768px) {
+			.subtitle {
+				width: 90%;
+			}
+		}
+	}
+</style>
+
+<script>
+	import animationAppear from "@/libs/utils"
+
+	document.addEventListener("DOMContentLoaded", () => {
+		animationAppear(".title")
+	})
+</script>

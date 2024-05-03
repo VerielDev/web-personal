@@ -1,39 +1,16 @@
 ---
+import FormContact from "../ui/FormContact.astro"
 import { formContactSection } from "@/const/data"
 
 const { title, subTitle } = formContactSection
 ---
+
 <section id="container-form-contact-section">
 	<h1 set:html={title} />
 	<div class="form-contact-section">
-		<form class="form" method="" action="">
-			<div class="form-group">
-				<input type="text" id="name" name="name" placeholder="Your name" />
-			</div>
-			<div class="form-group">
-				<input type="email" id="email" name="email" placeholder="Email" />
-			</div>
-			<div class="form-group">
-				<input type="tel" id="phone" name="phone" placeholder="Email" />
-			</div>
-			<div class="form-group">
-				<input
-					type="text"
-					id="web-site"
-					name="website"
-					placeholder="Your website (if exists)"
-				/>
-			</div>
-			<div class="form-group">
-				<textarea
-					name="message"
-					id="message"
-					rows="5"
-					placeholder="How can i help?"></textarea>
-			</div>
-		</form>
+		<FormContact />
 		<div class="form-description">
-			<h2 set:html={subTitle}></h2>
+			<h2 set:html={subTitle} />
 			<p>
 				You have a project in mind? Let's talk about it. It would be a pleasure
 				to help you to make it real.
@@ -46,11 +23,11 @@ const { title, subTitle } = formContactSection
 	</div>
 </section>
 <style>
-
-#container-form-contact-section {
+	#container-form-contact-section {
 		text-align: center;
 		margin-top: var(--p-60);
-		h2, h1 {
+		h2,
+		h1 {
 			span {
 				font-weight: bold;
 				color: transparent;
@@ -65,28 +42,7 @@ const { title, subTitle } = formContactSection
 			margin: 0 auto;
 			margin-top: var(--p-40);
 			gap: 2rem;
-			.form {
-				flex: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-direction: column;
-				gap: 1em;
-				.form-group {
-					width: 100%;
-					max-width: 450px;
-					input,
-					textarea {
-						width: 100%;
-						padding: var(--p-10);
-						background: transparent;
-						border: none;
-						border: 1px solid var(--color-zinc-100);
-						color: : var(--color-zinc-100);
-					}
-				}
-			}
-			.form-description{
+			.form-description {
 				flex: 1;
 				text-align: start;
 
@@ -114,22 +70,15 @@ const { title, subTitle } = formContactSection
 				}
 			}
 			@media screen and (max-width: 768px) {
-					flex-direction: column-reverse;
-					.form {
-						width: 100%;
-						.form-group {
-							width: 100%;
-							max-width: 100%;
-						}
-					}
-					.form-description {
-							margin-top: var(--p-20);
-							text-align: center;
-						.links {
-							justify-content: center;
-						}
+				flex-direction: column-reverse;
+				.form-description {
+					margin-top: var(--p-20);
+					text-align: center;
+					.links {
+						justify-content: center;
 					}
 				}
 			}
+		}
 	}
 </style>
