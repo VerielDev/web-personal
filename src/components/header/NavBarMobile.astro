@@ -1,41 +1,23 @@
 ---
-
+import NavBarUl from "./NavBarUl.astro"
 ---
 
 <nav id="nav-bar-mobile">
-    <div id="close-menu">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-circle-x"
-            ><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"
-            ></path><path d="m9 9 6 6"></path></svg
-        >
-    </div>
-    <ul>
-        <li>
-            <a href="/about" title="About me" data-content="About me"
-                >About me</a
-            >
-        </li>
-        <li>
-            <a href="/Skills" title="Skills" data-content="Skills">Skills</a>
-        </li>
-        <li>
-            <a href="/project" title="Project" data-content="Project">Project</a
-            >
-        </li>
-        <li>
-            <a href="/contact" title="Contact" data-content="Contact"
-                >Contact me</a
-            >
-        </li>
-    </ul>
+	<div id="close-menu">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="40"
+			height="40"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="lucide lucide-circle-x"
+			><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"></path><path
+				d="m9 9 6 6"></path></svg
+		>
+	</div>
+	<NavBarUl />
 </nav>

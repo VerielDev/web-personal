@@ -7,13 +7,18 @@ interface Props {
 	slug: string
 }
 const { title, description, slug } = Astro.props as Props
+const titleWithOutSpan = title
+	.split("<span>")
+	.join("")
+	.split("</span>")
+	.join("")
 ---
 
 <div class="card">
 	<div class="icon">
 		<IconCode />
 	</div>
-	<h3>{title}</h3>
+	<h3>{titleWithOutSpan}</h3>
 	<p class="description">{description}</p>
 	<a href={`/blog/${slug}/`}>Learn More</a>
 	<div class="shine"></div>
