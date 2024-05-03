@@ -1,0 +1,60 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import Frontend from "@/components/skills/Frontend.astro"
+import Modal from "@/components/ui/Modal.astro"
+
+const title = "My <span>Skills</span>"
+---
+
+<Layout
+	title="Skills | Víctor Manuel Ordiales García"
+	description="Sección de habilidades de Víctor Manuel Ordiales García"
+	canonical="https://veriel.dev"
+>
+	<section id="skills">
+		<Modal>
+			<h1>Modal Genérico</h1>
+		</Modal>
+		<div class="title">
+			<h1 set:html={title} />
+			<p class="subtitle">
+				En esta sección puedes ver las habilidades que he adquirido a lo largo
+				de mi carrera profesional y de formación académica.
+			</p>
+		</div>
+		<div class="container-skills">
+			<Frontend data-attribute="frontend" />
+		</div>
+	</section>
+</Layout>
+
+<style>
+	#skills {
+		text-align: center;
+		margin-top: var(--p-60);
+		h1 {
+			span {
+				font-weight: bold;
+				color: transparent;
+				-webkit-text-stroke: 1px var(--color-zinc-100);
+				text-stroke: 1px var(--color-zinc-100);
+			}
+		}
+		.subtitle {
+			margin-top: var(--p-20);
+			margin: 0 auto;
+			margin-bottom: var(--p-40);
+			font-size: var(--fz-20);
+			color: var(--text-color);
+			text-align: center;
+			width: 60%;
+		}
+		.container-skills {
+			display: block;
+			padding: var(--p-20);
+			border: 1px solid var(--color-zinc-100);
+			width: 100%;
+			height: 100%;
+		}
+	}
+</style>

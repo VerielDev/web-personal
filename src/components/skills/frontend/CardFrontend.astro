@@ -1,0 +1,50 @@
+---
+interface Props {
+	title: string
+	icon: any
+}
+const { title, icon: Icon } = Astro.props as Props
+---
+
+<div class="element">
+	<Icon />
+	{title}
+</div>
+<div class="modal"></div>
+
+<style>
+	.element {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		border: 1px solid var(--color-zinc-100);
+		color: var(--color-zinc-100);
+		width: 150px;
+		height: 150px;
+		transition: all 0.3s ease-in-out;
+		cursor: pointer;
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 0 4px var(--color-zinc-100);
+		}
+	}
+</style>
+
+<script>
+	import { $ } from "@/libs/utils"
+	import { toggleModal } from "@/libs/modal"
+
+	document.addEventListener("astro:page-load", () => {
+		const modalGeneric = $("#modal-generic") as HTMLElement
+		const element = $(".element") as HTMLElement
+
+		element.addEventListener("click", () => {
+			toggleModal(modalGeneric)
+		})
+		modalGeneric.addEventListener("click", () => {
+			toggleModal(modalGeneric)
+		})
+	})
+</script>

@@ -1,0 +1,52 @@
+---
+import Html from "../svg/Html.astro"
+import JavaScript from "../svg/JavaScript.astro"
+import Css from "../svg/Css.astro"
+import Vcs from "../svg/Vcs.astro"
+import Package from "../svg/Package.astro"
+import FrameWorks from "../svg/FrameWorks.astro"
+import Gear from "../svg/Gear.astro"
+import Testing from "../svg/Testing.astro"
+import WebComponent from "../svg/WebComponent.astro"
+import CardFrontend from "./frontend/CardFrontend.astro"
+
+const elements = [
+	{ title: "JavaScript", icon: JavaScript },
+	{ title: "HTML5", icon: Html },
+	{ title: "WebComponet", icon: WebComponent },
+	{ title: "CSS3", icon: Css },
+	{ title: "VCS", icon: Vcs },
+	{ title: "Package Managers", icon: Package },
+	{ title: "Frameworks", icon: FrameWorks },
+	{ title: "Build Tools", icon: Gear },
+	{ title: "Testing", icon: Testing },
+]
+---
+
+<h2 class="title">Frontend</h2>
+
+<div class="container">
+	{
+		elements.map(({ title, icon }) => (
+			<CardFrontend title={title} icon={icon} />
+		))
+	}
+</div>
+<style>
+	.title {
+		font-size: var(--font-size-2xlarge);
+		text-align: start;
+		font-weight: bold;
+		color: transparent;
+		-webkit-text-stroke: 1px var(--color-zinc-100);
+		text-stroke: 1px var(--color-zinc-100);
+	}
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		flex-wrap: wrap;
+		margin-top: var(--p-40);
+	}
+</style>
