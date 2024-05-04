@@ -187,7 +187,14 @@ import NavBarMobile from "./NavBarMobile.astro"
 		function toggleMenu(isOpen: boolean) {
 			navBarMobile.style.animation = ""
 			document.body.style.overflow = isOpen ? "hidden" : "auto"
-			navBarMobile.style.display = isOpen ? "block" : "none"
+			if (isOpen) {
+				navBarMobile.style.display = "block"
+			} else {
+				setTimeout(() => {
+					navBarMobile.style.display = "none"
+				}, 800)
+			}
+
 			navBarMobile.style.animation = isOpen
 				? "slideIn 0.8s forwards"
 				: "slideOut 0.8s forwards"
