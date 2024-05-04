@@ -1,5 +1,73 @@
 ---
+import Level1 from "./level1/Level1.astro"
+import Level2 from "./level2/Level2.astro"
+import Level3 from "./level3/Level3.astro"
+import Level4 from "./level4/Level4.astro"
 
+const textTooltip = {
+	textLevel1:
+		"<span>JavaScript (JS)</span> es un lenguaje de programación ampliamente utilizado tanto en el desarrollo web como en otros ámbitos. Inicialmente creado para agregar interactividad a las páginas web, JS ha evolucionado hasta convertirse en un lenguaje de programación versátil y poderoso que se ejecuta en el navegador del usuario. Es un componente fundamental de la web moderna y se utiliza para una amplia gama de aplicaciones, desde la creación de páginas web dinámicas hasta el desarrollo de aplicaciones web complejas y juegos en línea.",
+	testLevel2:
+		"Los <span>tipos de datos</span> en JavaScript son las diferentes categorías en las que se pueden clasificar los valores que se manipulan en un programa. Cada tipo de dato tiene características específicas y determina cómo se almacena y manipula la información en el código. Estos tipos de datos pueden incluir números, cadenas de texto, valores lógicos, objetos, arreglos, funciones y otros tipos más especializados, como símbolos. La comprensión de los tipos de datos es fundamental para comprender cómo funcionan los programas JavaScript y cómo se pueden utilizar de manera efectiva para realizar operaciones y procesos en la aplicación",
+	textLevel3:
+		"El <span>DOM</span> (Modelo de Objetos del Documento) es una interfaz de programación de aplicaciones (API) que proporciona una representación estructurada de un documento HTML y permite a los desarrolladores acceder y manipular los elementos de la página web. El DOM se utiliza para interactuar con los elementos de la página, modificar su contenido, estilo y estructura, y responder a eventos del usuario. Es una parte fundamental de la programación web y se utiliza en conjunto con JavaScript para crear aplicaciones web dinámicas y interactivas.",
+	textLevel4:
+		"Los <span>eventos</span> en JavaScript son acciones que ocurren en la página web y que pueden ser detectadas y manejadas por el código JavaScript. Los eventos pueden ser desencadenados por el usuario, como hacer clic en un botón o mover el mouse sobre un elemento, o pueden ser generados por el navegador, como cargar una página o cerrar una ventana. Los eventos permiten a los desarrolladores crear interactividad en la página web y responder a las acciones del usuario de manera dinámica y en tiempo real.",
+	textLevel5:
+		"Los <span>tipos de datos primitivos</span> son los más básicos y simples. Son los que no son objetos y no tienen métodos.",
+	textLevel6:
+		"Los <span>tipos de datos complejos</span> son aquellos que son objetos y tienen métodos y propiedades.",
+}
+const { textLevel1, testLevel2, textLevel3, textLevel4 } = textTooltip
 ---
 
-<h1>JS Component</h1>
+<div class="container-java-script">
+	<!--level-1 -->
+	<Level1 textLevel1={textLevel1} />
+	<!--level-2 -->
+	<Level2 testLevel2={testLevel2} />
+	<!--level-3 -->
+	<Level3 textLevel3={textLevel3} />
+	<!--Level 4 -->
+	<Level4 textLevel4={textLevel4} />
+	<!-- level 5 -->
+	<!-- <Level5 textLevel5={textLevel5} /> -->
+	<!-- level 6 -->
+	<!-- <Level6 textLevel6={textLevel6} /> -->
+	<!-- level 7 -->
+	<!-- <Level7 /> -->
+	<!-- Level 8 -->
+	<!-- <Level8 /> -->
+	<!-- Level 9 -->
+	<!-- <Level9 /> -->
+</div>
+
+<style>
+	:root {
+		--color-dark: #111;
+		--h-level: 110px;
+		--w-level: 110px;
+		--w-tooltip: 350px;
+		--h-tooltip: fit-content;
+	}
+	.container-java-script {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		width: 100%;
+		height: 80vh;
+	}
+</style>
+
+<script>
+	import { $$, animationTooltip } from "@/libs/utils"
+
+	document.addEventListener("astro:page-load", () => {
+		const levelLength = $$("[class^='level-']").length
+		const array = Array.from({ length: levelLength }, (_, i) => i + 1)
+		array.forEach((item) =>
+			animationTooltip(`.level-${item}`, `.level-${item} .tooltip`)
+		)
+	})
+</script>

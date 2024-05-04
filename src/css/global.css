@@ -13,9 +13,9 @@
 	--color-zinc-600: #52525b;
 	--color-zinc-700: #3f3f46;
 	--color-zinc-800: #27272a;
-
+	
 	--font-size-standard: 16px;
-	-fonr-size-small: 0.875rem;
+	--font-size-small: 0.875rem;
 	--font-size-medium: 1.125rem;
 	--font-size-large: 1.5rem;
 	--font-size-xlarge: 2rem;
@@ -122,6 +122,30 @@ h1 {
 	font-weight: bold;
 	margin-bottom: var(--p-20);
 }
+/* Tooltip */
+.tooltip {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 120%;
+	background-color: var(--color-dark);
+	color: white;
+	padding: var(--p-20);
+	border-radius: var(--p-20);
+	border: 1px dashed var(--color-primary-js-component);
+	width: 100%;
+	min-width: var(--w-tooltip);
+	z-index: 1;
+	p {
+		font-size: var(--font-size-small);
+		text-align: start;
+		line-height: 1.5;
+		span {
+			color: var(--color-primary-js-component);
+			font-weight: bold;
+		}
+	}
+}
 /* Animation */
 .appear {
 	animation: appear 1s forwards;
@@ -176,6 +200,14 @@ h1 {
 	}
 	to {
 		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
 	}
 }
 @keyframes pulse {

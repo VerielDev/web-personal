@@ -1,0 +1,23 @@
+---
+interface Props {
+	textLevel3: string
+}
+const { textLevel3 }: Props = Astro.props as Props
+---
+
+<div class="level-3">
+	<p>DOM</p>
+	<div class="tooltip">
+		<p set:html={textLevel3} />
+	</div>
+</div>
+<style>
+	.level-3 {
+		position: absolute;
+		top: 245px;
+		cursor: pointer;
+		right: 46%;
+		border: 1px solid var(--color-zinc-100);
+		padding: var(--p-20);
+	}
+</style>

@@ -1,0 +1,74 @@
+---
+import JavaScript from "@/components/svg/JavaScript.astro"
+
+interface Props {
+	textLevel1: string
+}
+const { textLevel1 } = Astro.props as Props
+---
+
+<div class="level-1">
+	<div class="icon">
+		<JavaScript height={60} width={60} />
+	</div>
+	<div class="tooltip">
+		<p set:html={textLevel1} />
+	</div>
+	<div class="line-1"></div>
+	<div class="line-2"></div>
+	<div class="line-3"></div>
+	<div class="line-4"></div>
+	<div class="line-5"></div>
+	<div class="line-6"></div>
+</div>
+
+<style>
+	.level-1 {
+		position: relative;
+		cursor: pointer;
+		.icon {
+			border-radius: 50%;
+			height: var(--h-level);
+			width: var(--w-level);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 1px dashed var(--color-zinc-100);
+		}
+		.line-1,
+		.line-4,
+		.line-5,
+		.line-6 {
+			position: absolute;
+			width: 2px;
+			height: 80px;
+			background-color: var(--color-zinc-100);
+			top: 78%;
+			left: 50%;
+		}
+
+		.line-2,
+		.line-3 {
+			position: absolute;
+			width: 300px;
+			height: 2px;
+			background-color: var(--color-zinc-100);
+			top: 150%;
+			left: 50%;
+		}
+		.line-3 {
+			left: -223%;
+		}
+		.line-4,
+		.line-5,
+		.line-6 {
+			top: 150%;
+		}
+		.line-5 {
+			left: -223%;
+		}
+		.line-6 {
+			left: 323%;
+		}
+	}
+</style>

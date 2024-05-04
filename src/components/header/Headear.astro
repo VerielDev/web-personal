@@ -135,6 +135,7 @@ import NavBarMobile from "./NavBarMobile.astro"
 					width: 100%;
 					height: 100vh;
 					gap: 4rem;
+					margin-left: -20px;
 					list-style: none;
 
 					li {
@@ -187,13 +188,11 @@ import NavBarMobile from "./NavBarMobile.astro"
 		function toggleMenu(isOpen: boolean) {
 			navBarMobile.style.animation = ""
 			document.body.style.overflow = isOpen ? "hidden" : "auto"
-			if (isOpen) {
-				navBarMobile.style.display = "block"
-			} else {
-				setTimeout(() => {
-					navBarMobile.style.display = "none"
-				}, 800)
-			}
+			isOpen
+				? (navBarMobile.style.display = "block")
+				: setTimeout(() => {
+						navBarMobile.style.display = "none"
+					}, 800)
 
 			navBarMobile.style.animation = isOpen
 				? "slideIn 0.8s forwards"

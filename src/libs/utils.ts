@@ -46,4 +46,19 @@ export const animationAppearElements = (selector: string) => {
 	element.forEach((el) => observer.observe(el))
 }
 
+export const animationTooltip = (level: string, tooltip: string) => {
+	const levelElement = $(level) as HTMLElement
+	const tooltipElement = $(tooltip) as HTMLElement
+
+	levelElement.addEventListener("mouseover", () => {
+		tooltipElement.style.display = "block"
+		tooltipElement.style.animation = "fadeIn 0.5s forwards"
+	})
+	levelElement.addEventListener("mouseleave", () => {
+		tooltipElement.style.animation = "fadeOut 0.5s forwards"
+		setTimeout(() => {
+			tooltipElement.style.display = "none"
+		}, 500)
+	})
+}
 export default animationAppear
