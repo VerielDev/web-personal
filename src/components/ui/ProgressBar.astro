@@ -1,0 +1,58 @@
+---
+interface Props {
+	value: number
+	title: string
+	color?: string
+}
+const { value, title, color = "#efb810" } = Astro.props as Props
+const widthFill = `${value}%`
+---
+
+<div class="bar">
+	<p>{title}</p>
+	<div class="progress-bar">
+		<div class="progress-bar-fill">
+			{`${value}%`}
+		</div>
+	</div>
+</div>
+
+<style define:vars={{ widthFill, color }}>
+	:root {
+		--width-total: 200px;
+	}
+	.bar {
+		margin-bottom: var(--p-10);
+		p {
+			color: var(--color-zinc-100);
+			margin-bottom: 5px;
+			text-align: start;
+		}
+		.progress-bar {
+			width: var(--width-total);
+			height: var(--p-20);
+			background-color: var(--color-zinc-100);
+			color: var(--color-zinc-800);
+			font-weight: bold;
+			border-radius: 4px;
+			overflow: hidden;
+			.progress-bar-fill {
+				height: 100%;
+				background-color: var(--color);
+				width: var(--widthFill);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				animation: widthTransition 2s forwards;
+			}
+		}
+	}
+	@keyframes widthTransition {
+		from {
+			width: 0; /* Ancho inicial */
+		}
+		to {
+			width: var(--widthFill); /* Ancho final */
+		}
+	}
+</style>

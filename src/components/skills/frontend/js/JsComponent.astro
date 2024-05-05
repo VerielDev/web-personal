@@ -1,45 +1,71 @@
 ---
-import Level1 from "./level1/Level1.astro"
-import Level2 from "./level2/Level2.astro"
-import Level3 from "./level3/Level3.astro"
-import Level4 from "./level4/Level4.astro"
+import JavaScript from "@/components/svg/JavaScript.astro"
+import ProgressBar from "@/components/ui/ProgressBar.astro"
 
 const textTooltip = {
 	textLevel1:
 		"<span>JavaScript (JS)</span> es un lenguaje de programación ampliamente utilizado tanto en el desarrollo web como en otros ámbitos. Inicialmente creado para agregar interactividad a las páginas web, JS ha evolucionado hasta convertirse en un lenguaje de programación versátil y poderoso que se ejecuta en el navegador del usuario. Es un componente fundamental de la web moderna y se utiliza para una amplia gama de aplicaciones, desde la creación de páginas web dinámicas hasta el desarrollo de aplicaciones web complejas y juegos en línea.",
-	testLevel2:
-		"Los <span>tipos de datos</span> en JavaScript son las diferentes categorías en las que se pueden clasificar los valores que se manipulan en un programa. Cada tipo de dato tiene características específicas y determina cómo se almacena y manipula la información en el código. Estos tipos de datos pueden incluir números, cadenas de texto, valores lógicos, objetos, arreglos, funciones y otros tipos más especializados, como símbolos. La comprensión de los tipos de datos es fundamental para comprender cómo funcionan los programas JavaScript y cómo se pueden utilizar de manera efectiva para realizar operaciones y procesos en la aplicación",
-	textLevel3:
-		"El <span>DOM</span> (Modelo de Objetos del Documento) es una interfaz de programación de aplicaciones (API) que proporciona una representación estructurada de un documento HTML y permite a los desarrolladores acceder y manipular los elementos de la página web. El DOM se utiliza para interactuar con los elementos de la página, modificar su contenido, estilo y estructura, y responder a eventos del usuario. Es una parte fundamental de la programación web y se utiliza en conjunto con JavaScript para crear aplicaciones web dinámicas y interactivas.",
-	textLevel4:
-		"Los <span>eventos</span> en JavaScript son acciones que ocurren en la página web y que pueden ser detectadas y manejadas por el código JavaScript. Los eventos pueden ser desencadenados por el usuario, como hacer clic en un botón o mover el mouse sobre un elemento, o pueden ser generados por el navegador, como cargar una página o cerrar una ventana. Los eventos permiten a los desarrolladores crear interactividad en la página web y responder a las acciones del usuario de manera dinámica y en tiempo real.",
-	textLevel5:
-		"Los <span>tipos de datos primitivos</span> son los más básicos y simples. Son los que no son objetos y no tienen métodos.",
-	textLevel6:
-		"Los <span>tipos de datos complejos</span> son aquellos que son objetos y tienen métodos y propiedades.",
 }
-const { textLevel1, testLevel2, textLevel3, textLevel4 } = textTooltip
+const { textLevel1 } = textTooltip
 ---
 
 <div class="container-java-script">
-	<!--level-1 -->
-	<Level1 textLevel1={textLevel1} />
-	<!--level-2 -->
-	<Level2 testLevel2={testLevel2} />
-	<!--level-3 -->
-	<Level3 textLevel3={textLevel3} />
-	<!--Level 4 -->
-	<Level4 textLevel4={textLevel4} />
-	<!-- level 5 -->
-	<!-- <Level5 textLevel5={textLevel5} /> -->
-	<!-- level 6 -->
-	<!-- <Level6 textLevel6={textLevel6} /> -->
-	<!-- level 7 -->
-	<!-- <Level7 /> -->
-	<!-- Level 8 -->
-	<!-- <Level8 /> -->
-	<!-- Level 9 -->
-	<!-- <Level9 /> -->
+	<div class="level-1">
+		<div class="icon">
+			<JavaScript height={60} width={60} fill="#efb810" />
+		</div>
+	</div>
+	<div class="text">
+		<p set:html={textLevel1} />
+		<br />
+		<p>
+			En mi día a día como desarrollador, JavaScript se ha convertido en el
+			pilar fundamental de mi trabajo. Tanto en el ámbito del cliente como del
+			servidor.
+		</p>
+		<br />
+		<p>
+			Dentro del contexto de mi trabajo, me encuentro inmerso en entornos que
+			hacen uso de tecnologías como <span>Oracle WebCenter Sites (OWCS)</span> y
+			<span>Spring Framework</span>. En este escenario, JavaScript se erige como
+			una herramienta indispensable, permitiéndome interactuar con los elementos
+			de la interfaz de usuario de forma ágil y eficiente, así como también
+			facilitando la comunicación con el servidor para la manipulación de datos
+			y la gestión de eventos.
+		</p>
+		<br />
+		<p>
+			A lo largo de mi trayectoria y formación, he tenido el privilegio de
+			adentrarme en una variada selección de bibliotecas y herramientas dentro
+			del vasto ecosistema de JavaScript. Entre estas, destaca <span
+				>jQuery</span
+			>, una biblioteca que ha mantenido su relevancia como un pilar del
+			desarrollo web a lo largo de los años. Su sintaxis simplificada y su
+			capacidad de implementación en prácticamente cualquier navegador actual
+			son aspectos fundamentales que han enriquecido y agilizado mi labor
+			actual.
+		</p>
+		<br />
+		<p>
+			Me identifico como un desarrollador con una amplia experiencia y un
+			dominio sólido de JavaScript. Si por mí fuera, lo emplearía para todo
+			jajaja. Aunque, últimamente, he estado optando por <span>TypeScript</span>
+			en mis proyectos personales. El tipado estático que ofrece esta herramienta
+			ha sido de gran ayuda, brindando mayor estructura y claridad a mi código.
+		</p>
+	</div>
+	<div class="container-bar">
+		<ProgressBar value={75} title="Tipado Dinámico" />
+		<ProgressBar value={80} title="High Order Function" />
+		<ProgressBar value={85} title="Closures" />
+		<ProgressBar value={85} title="ProtoType" />
+		<ProgressBar value={90} title="Async" />
+		<ProgressBar value={80} title="DOM" />
+		<ProgressBar value={80} title="Promises" />
+		<ProgressBar value={75} title="Arrow Function" />
+		<ProgressBar value={70} title="Events" />
+		<ProgressBar value={75} title="Class" />
+	</div>
 </div>
 
 <style>
@@ -47,27 +73,49 @@ const { textLevel1, testLevel2, textLevel3, textLevel4 } = textTooltip
 		--color-dark: #111;
 		--h-level: 110px;
 		--w-level: 110px;
-		--w-tooltip: 350px;
-		--h-tooltip: fit-content;
+		--color-primary-js: #efb810;
 	}
 	.container-java-script {
 		position: relative;
 		display: flex;
-		justify-content: center;
-		align-items: flex-start;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
 		width: 100%;
-		height: 80vh;
+		.level-1 {
+			position: relative;
+			cursor: pointer;
+			.icon {
+				border-radius: 50%;
+				height: var(--h-level);
+				width: var(--w-level);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 1px dashed var(--color-primary-js);
+				margin-bottom: 50px;
+			}
+		}
+		.text {
+			text-align: start;
+			width: 80%;
+			p {
+				font-weight: 500;
+				color: var(--color-zinc-100);
+				line-height: 1.5;
+				span {
+					color: var(--color-primary-js);
+					font-weight: bold;
+				}
+			}
+		}
+		.container-bar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			width: 80%;
+			margin-top: var(--p-40);
+		}
 	}
 </style>
-
-<script>
-	import { $$, animationTooltip } from "@/libs/utils"
-
-	document.addEventListener("astro:page-load", () => {
-		const levelLength = $$("[class^='level-']").length
-		const array = Array.from({ length: levelLength }, (_, i) => i + 1)
-		array.forEach((item) =>
-			animationTooltip(`.level-${item}`, `.level-${item} .tooltip`)
-		)
-	})
-</script>
