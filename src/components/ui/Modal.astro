@@ -16,23 +16,29 @@
 
 <style>
 	#modal-generic {
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
+		min-height: 100%;
 		background-color: rgba(0, 0, 0, 0.9);
 		justify-content: center;
 		align-items: center;
-		height: 100vh;
 		z-index: 1000;
 		display: none;
+		scroll-behavior: smooth;
+		overflow: scroll;
 		.container-modal-generic {
+			position: relative;
 			background-color: var(--color-zinc-800);
 			padding: var(--p-20);
 			border-radius: var(--p-5);
 			width: 100%;
 			max-width: 1024px;
-			position: relative;
+			height: 100%;
+			@media screen and (max-width: 768px) {
+				padding: var(--p-5);
+			}
 		}
 	}
 </style>

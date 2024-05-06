@@ -9,8 +9,8 @@ const textTooltip = {
 const { textLevel1 } = textTooltip
 ---
 
-<div class="container-java-script">
-	<div class="level-1">
+<div class="container">
+	<div class="header">
 		<div class="icon">
 			<JavaScript height={60} width={60} fill="#efb810" />
 		</div>
@@ -75,14 +75,16 @@ const { textLevel1 } = textTooltip
 		--w-level: 110px;
 		--color-primary-js: #efb810;
 	}
-	.container-java-script {
+	.container {
 		position: relative;
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
 		flex-direction: column;
 		width: 100%;
-		.level-1 {
+		min-height: 80%;
+		height: fit-content;
+		.header {
 			position: relative;
 			cursor: pointer;
 			.icon {

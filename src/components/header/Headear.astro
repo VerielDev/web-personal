@@ -59,9 +59,9 @@ import NavBarMobile from "./NavBarMobile.astro"
 			}
 		}
 		#open-menu {
-			display: none;
 			svg {
 				cursor: pointer;
+				display: none;
 			}
 		}
 		#nav-bar-desktop ul {
@@ -104,7 +104,11 @@ import NavBarMobile from "./NavBarMobile.astro"
 			justify-content: space-between;
 			gap: 1rem;
 			position: relative;
-			#open-menu svg {
+			#open-menu {
+				svg {
+					cursor: pointer;
+					display: block;
+				}
 			}
 			#nav-bar-desktop {
 				display: none;
@@ -178,21 +182,15 @@ import NavBarMobile from "./NavBarMobile.astro"
 			"#nav-bar-mobile"
 		) as HTMLElement
 
-		openMenu.addEventListener("click", () => {
-			toggleMenu(true)
-		})
-		closeMenu.addEventListener("click", () => {
-			toggleMenu(false)
-		})
+		openMenu.addEventListener("click", () => toggleMenu(true))
+		closeMenu.addEventListener("click", () => toggleMenu(false))
 
 		function toggleMenu(isOpen: boolean) {
 			navBarMobile.style.animation = ""
 			document.body.style.overflow = isOpen ? "hidden" : "auto"
 			isOpen
 				? (navBarMobile.style.display = "block")
-				: setTimeout(() => {
-						navBarMobile.style.display = "none"
-					}, 800)
+				: setTimeout(() => (navBarMobile.style.display = "none"), 800)
 
 			navBarMobile.style.animation = isOpen
 				? "slideIn 0.8s forwards"

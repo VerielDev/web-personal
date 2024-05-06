@@ -1,0 +1,88 @@
+---
+import ProgressBar from "@/components/ui/ProgressBar.astro"
+
+interface Props {
+	icon: any
+	text: string[]
+	items: {
+		value: number
+		title: string
+	}[]
+	colorIcon?: string
+}
+const { icon: Icon, text, items, colorIcon = "#efb810" } = Astro.props as Props
+---
+
+<div class="container">
+	<div class="header">
+		<div class="icon">
+			<Icon height={60} width={60} fill={colorIcon} />
+		</div>
+	</div>
+	<div class="text">
+		{
+			text.map((t) => (
+				<>
+					<p set:html={t} />
+					<br />
+				</>
+			))
+		}
+	</div>
+	<div class="container-bar">
+		{items.map((item) => <ProgressBar value={item.value} title={item.title} />)}
+	</div>
+</div>
+
+<style define:vars={{ colorIcon }}>
+	:root {
+		--color-dark: #111;
+		--h-level: 110px;
+		--w-level: 110px;
+	}
+	.container {
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		min-height: 80%;
+		height: fit-content;
+		.header {
+			position: relative;
+			cursor: pointer;
+			.icon {
+				border-radius: 50%;
+				height: var(--h-level);
+				width: var(--w-level);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 1px dashed var(--colorIcon);
+				margin-bottom: 50px;
+			}
+		}
+		.text {
+			text-align: start;
+			width: 80%;
+			p {
+				font-weight: 500;
+				color: var(--color-zinc-100);
+				line-height: 1.5;
+				span {
+					color: var(--colorIcon);
+					font-weight: bold;
+				}
+			}
+		}
+		.container-bar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			width: 80%;
+			margin-top: var(--p-40);
+		}
+	}
+</style>

@@ -2,8 +2,6 @@
 import Layout from "@/layouts/Layout.astro"
 import Frontend from "@/components/skills/Frontend.astro"
 import Modal from "@/components/ui/Modal.astro"
-import JsComponent from "@/components/skills/frontend/js/JsComponent.astro"
-import HtmlComponent from "@/components/skills/frontend/html/HtmlComponent.astro"
 import CssComponent from "@/components/skills/frontend/css/CssComponent.astro"
 import WebComponent from "@/components/skills/frontend/web/WebComponent.astro"
 import VcsComponent from "@/components/skills/frontend/vcs/VcsComponent.astro"
@@ -11,6 +9,12 @@ import PackagesComponent from "@/components/skills/frontend/packages/PackagesCom
 import Frameworks from "@/components/skills/frontend/frameworks/FrameWorks.astro"
 import BuildTools from "@/components/skills/frontend/buildTools/BuildTools.astro"
 import Testing from "@/components/skills/frontend/testing/Testing.astro"
+
+/* Texts */
+import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
+import SkillComponent from "@/components/ui/SkillComponent.astro"
+import JavaScript from "@/components/svg/JavaScript.astro"
+import Html from "@/components/svg/Html.astro"
 
 const title = "My <span>Skills</span>"
 ---
@@ -28,7 +32,12 @@ const title = "My <span>Skills</span>"
 				style="display: none"
 				class="container-modal-generic"
 			>
-				<JsComponent />
+				<SkillComponent
+					icon={JavaScript}
+					text={skillsJS}
+					items={itemsJS}
+					colorIcon="#efb810"
+				/>
 			</div>
 			<div
 				slot="HTML5"
@@ -36,7 +45,12 @@ const title = "My <span>Skills</span>"
 				style="display: none"
 				class="container-modal-generic"
 			>
-				<HtmlComponent />
+				<SkillComponent
+					icon={Html}
+					text={skillsHtml}
+					items={itemsHtml}
+					colorIcon="orange"
+				/>
 			</div>
 			<div
 				slot="CSS3"
@@ -128,6 +142,9 @@ const title = "My <span>Skills</span>"
 			color: var(--text-color);
 			text-align: center;
 			width: 60%;
+			@media screen and (max-width: 768px) {
+				width: 90%;
+			}
 		}
 		.container-skills {
 			display: block;
