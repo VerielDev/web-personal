@@ -14,9 +14,9 @@ dependencies:
   '@astrojs/node':
     specifier: 8.2.5
     version: 8.2.5(astro@4.7.0)
-  '@fontsource/roboto':
-    specifier: ^5.0.13
-    version: 5.0.13
+  '@fontsource-variable/jost':
+    specifier: 5.0.19
+    version: 5.0.19
   astro:
     specifier: 4.7.0
     version: 4.7.0(typescript@5.4.5)
@@ -854,8 +854,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource/roboto@5.0.13:
-    resolution: {integrity: sha512-j61DHjsdUCKMXSdNLTOxcG701FWnF0jcqNNQi2iPCDxU8seN/sMxeh62dC++UiagCWq9ghTypX+Pcy7kX+QOeQ==}
+  /@fontsource-variable/jost@5.0.19:
+    resolution: {integrity: sha512-+uQ2f14HeqlRWbAH3shJoVUxogX5EbQwQm9uccYjyaiHVeHzrAYlxOdvZT9jB8XgybxpeCf/mtSr4Qwuzl6VYA==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:

@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets"
 import SocialBar from "../ui/SocialBar.astro"
-import Banner from "@/assets/banner.png"
+import Banner from "@/assets/banner.webp"
 
-import { textHeroSection } from "@/const/data"
+import { textHeroSection } from "@/const/home"
 
 const { title, description } = textHeroSection
 ---
@@ -78,7 +78,7 @@ const { title, description } = textHeroSection
 <script>
 	import animationAppear from "@/libs/utils.ts"
 
-document.addEventListener("astro:page-load", () =>
+	document.addEventListener("astro:page-load", () =>
 		animationAppear("#hero-section")
 	)
 </script>

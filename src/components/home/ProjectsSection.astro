@@ -1,6 +1,6 @@
 ---
 import CardProject from "../ui/CardProject.astro"
-import { projectsSection } from "@/const/data"
+import { projectsSection } from "@/const/home"
 
 import GitHub from "@/components/svg/GitHub.astro"
 
@@ -166,7 +166,7 @@ const projects: TypePropjects[] = [
 <script>
 	import { animationAppearElements } from "@/libs/utils.ts"
 
-document.addEventListener("astro:page-load", () => {
+	document.addEventListener("astro:page-load", () => {
 		animationAppearElements(".project")
-})
+	})
 </script>

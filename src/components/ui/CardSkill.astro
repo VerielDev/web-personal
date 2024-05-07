@@ -1,0 +1,33 @@
+---
+interface Props {
+	title: string
+	icon: any
+	dataAttribute: string
+}
+const { title, icon: Icon, dataAttribute } = Astro.props as Props
+---
+
+<div class="element" data-atribute={dataAttribute}>
+	<Icon />
+	{title}
+</div>
+
+<style>
+	.element {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		border: 1px solid var(--color-zinc-100);
+		color: var(--color-zinc-100);
+		width: 150px;
+		height: 150px;
+		transition: all 0.3s ease-in-out;
+		cursor: pointer;
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 0 4px var(--color-zinc-100);
+		}
+	}
+</style>

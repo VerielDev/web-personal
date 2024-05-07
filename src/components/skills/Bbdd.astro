@@ -1,0 +1,22 @@
+---
+import Postgresql from "../svg/Postgresql.astro"
+import MongoDb from "../svg/MongoDb.astro"
+import OracleSql from "../svg/OracleSql.astro"
+import CardSkill from "@/components/ui/CardSkill.astro"
+
+const elements = [
+	{ title: "PostgreSQL", icon: Postgresql, dataAttribute: "child-15" },
+	{ title: "MongoDB", icon: MongoDb, dataAttribute: "child-16" },
+	{ title: "OracleSQL", icon: OracleSql, dataAttribute: "child-17" },
+]
+---
+
+<h2 class="title">Bbdd</h2>
+
+<div class="container">
+	{
+		elements.map(({ title, icon, dataAttribute }) => (
+			<CardSkill title={title} icon={icon} dataAttribute={dataAttribute} />
+		))
+	}
+</div>

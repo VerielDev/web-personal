@@ -8,7 +8,7 @@ import FrameWorks from "../svg/FrameWorks.astro"
 import Gear from "../svg/Gear.astro"
 import Testing from "../svg/Testing.astro"
 import WebComponent from "../svg/WebComponent.astro"
-import CardFrontend from "./frontend/CardFrontend.astro"
+import CardSkill from "@/components/ui/CardSkill.astro"
 
 const elements = [
 	{ title: "JavaScript", icon: JavaScript, dataAttribute: "child-1" },
@@ -32,25 +32,7 @@ const elements = [
 <div class="container">
 	{
 		elements.map(({ title, icon, dataAttribute }) => (
-			<CardFrontend title={title} icon={icon} dataAttribute={dataAttribute} />
+			<CardSkill title={title} icon={icon} dataAttribute={dataAttribute} />
 		))
 	}
 </div>
-<style>
-	.title {
-		font-size: var(--font-size-2xlarge);
-		text-align: start;
-		font-weight: bold;
-		color: transparent;
-		-webkit-text-stroke: 1px var(--color-zinc-100);
-		text-stroke: 1px var(--color-zinc-100);
-	}
-	.container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 2rem;
-		flex-wrap: wrap;
-		margin-top: var(--p-40);
-	}
-</style>

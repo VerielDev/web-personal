@@ -1,20 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import Frontend from "@/components/skills/Frontend.astro"
-import Modal from "@/components/ui/Modal.astro"
-import CssComponent from "@/components/skills/frontend/css/CssComponent.astro"
-import WebComponent from "@/components/skills/frontend/web/WebComponent.astro"
-import VcsComponent from "@/components/skills/frontend/vcs/VcsComponent.astro"
-import PackagesComponent from "@/components/skills/frontend/packages/PackagesComponent.astro"
-import Frameworks from "@/components/skills/frontend/frameworks/FrameWorks.astro"
-import BuildTools from "@/components/skills/frontend/buildTools/BuildTools.astro"
-import Testing from "@/components/skills/frontend/testing/Testing.astro"
 
 /* Texts */
-import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
-import SkillComponent from "@/components/ui/SkillComponent.astro"
-import JavaScript from "@/components/svg/JavaScript.astro"
-import Html from "@/components/svg/Html.astro"
+import Backend from "@/components/skills/Backend.astro"
+import ModalSkills from "@/components/skills/ModalSkills.astro"
+import Bbdd from "@/components/skills/Bbdd.astro"
 
 const title = "My <span>Skills</span>"
 ---
@@ -25,90 +16,7 @@ const title = "My <span>Skills</span>"
 	canonical="https://veriel.dev"
 >
 	<section id="skills">
-		<Modal>
-			<div
-				slot="JavaScript"
-				data-content="child-1"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<SkillComponent
-					icon={JavaScript}
-					text={skillsJS}
-					items={itemsJS}
-					colorIcon="#efb810"
-				/>
-			</div>
-			<div
-				slot="HTML5"
-				data-content="child-2"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<SkillComponent
-					icon={Html}
-					text={skillsHtml}
-					items={itemsHtml}
-					colorIcon="orange"
-				/>
-			</div>
-			<div
-				slot="CSS3"
-				data-content="child-3"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<CssComponent />
-			</div>
-			<div
-				slot="WebComponent"
-				data-content="child-4"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<WebComponent />
-			</div>
-			<div
-				slot="VCS"
-				data-content="child-5"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<VcsComponent />
-			</div>
-			<div
-				slot="PackageManagers"
-				data-content="child-6"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<PackagesComponent />
-			</div>
-			<div
-				slot="Frameworks"
-				data-content="child-7"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<Frameworks />
-			</div>
-			<div
-				slot="BuildTools"
-				data-content="child-8"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<BuildTools />
-			</div>
-			<div
-				slot="Testing"
-				data-content="child-9"
-				style="display: none"
-				class="container-modal-generic"
-			>
-				<Testing />
-			</div>
-		</Modal>
+		<ModalSkills />
 		<div class="title">
 			<h1 set:html={title} />
 			<p class="subtitle">
@@ -118,9 +26,37 @@ const title = "My <span>Skills</span>"
 		</div>
 		<div class="container-skills">
 			<Frontend />
+			<Backend />
+			<Bbdd />
 		</div>
 	</section>
 </Layout>
+<script>
+	import { $, $$ } from "@/libs/utils"
+	import { toggleModal } from "@/libs/modal"
+
+	document.addEventListener("astro:page-load", () => {
+		const modalGeneric = $("#modal-generic") as HTMLElement
+		const elements: NodeListOf<HTMLElement> = $$(".element")
+		elements.forEach((element) => {
+			element.addEventListener("click", () => {
+				const dataAttribute = element.getAttribute("data-atribute")
+				;(
+					modalGeneric.querySelector(
+						`[data-content="${dataAttribute}"]`
+					) as HTMLElement
+				).style.display = "block"
+				toggleModal(modalGeneric)
+			})
+			modalGeneric.addEventListener("click", () => {
+				toggleModal(modalGeneric)
+				document.querySelectorAll("[data-content]").forEach((content) => {
+					;(content as HTMLElement).style.display = "none"
+				})
+			})
+		})
+	})
+</script>
 
 <style>
 	#skills {
@@ -152,6 +88,28 @@ const title = "My <span>Skills</span>"
 			border: 1px solid var(--color-zinc-100);
 			width: 100%;
 			height: 100%;
+			.title {
+				font-size: var(--font-size-2xlarge);
+				text-align: center;
+				font-weight: bold;
+				color: transparent;
+				-webkit-text-stroke: 1px var(--color-zinc-100);
+				text-stroke: 1px var(--color-zinc-100);
+				&:nth-child(3) {
+					margin-top: var(--p-40);
+				}
+				&:nth-child(5) {
+					margin-top: var(--p-40);
+				}
+			}
+			.container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 2rem;
+				flex-wrap: wrap;
+				margin-top: var(--p-40);
+			}
 		}
 	}
 </style>

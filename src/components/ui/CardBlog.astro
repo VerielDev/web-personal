@@ -18,7 +18,7 @@ const titleWithOutSpan = title
 	<div class="icon">
 		<IconCode />
 	</div>
-	<h3>{titleWithOutSpan}</h3>
+	<h3 style="text-align: start;">{titleWithOutSpan}</h3>
 	<p class="description">{description}</p>
 	<a href={`/blog/${slug}/`}>Learn More</a>
 	<div class="shine"></div>
@@ -38,13 +38,7 @@ const titleWithOutSpan = title
 		border: 1px solid var(--color-zinc-100);
 		width: 300px;
 		height: fit-content;
-		height: 260px;
-		h3 {
-			color: var(--color-zinc-100);
-			font-size: var(--font-size-large);
-			font-weight: 600;
-			text-align: start;
-		}
+		/* border-radius: var(--p-10); */
 
 		box-shadow:
 			0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur)
@@ -66,26 +60,14 @@ const titleWithOutSpan = title
 			transition-duration: 0.5s;
 			transition-delay: 0s;
 		}
-		a {
-			position: relative;
-			z-index: 100;
-			margin-top: var(--p-10);
-			text-decoration: none;
-			color: var(--color-zinc-100);
-			transition: all 0.3s ease-in-out;
-			cursor: pointer;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
 		.description {
 			margin-top: var(--p-20);
 			text-align: start;
 			color: var(--text-color);
 		}
 		.icon {
-			width: 45px;
-			height: 45px;
+			width: 50px;
+			height: 50px;
 			box-shadow: 0 0 2px 0px var(--color-zinc-100) inset;
 			border-radius: 50%;
 			margin-bottom: var(--p-20);
@@ -278,6 +260,7 @@ const titleWithOutSpan = title
 		}
 	}
 </style>
+
 <script>
 	import { animationAppearElements } from "@/libs/utils"
 

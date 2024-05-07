@@ -1,57 +1,54 @@
 ---
-
 import CardExperience from "../ui/CardExperience.astro"
 
-import { experienceSection, experiences } from "@/const/data"
+import { experienceSection, experiences } from "@/const/home"
 
 const { title } = experienceSection
-
 ---
 
 <section id="experience-section">
-    <h1 set:html={title} />
-    <div class="container-experience">
-        {
-            experiences.map(({ title, company, date, description }) => (
-                <CardExperience
-                    title={title}
-                    company={company}
-                    date={date}
-                    description={description}
-                />
-            ))
-        }
-    </div>
+	<h1 set:html={title} />
+	<div class="container-experience">
+		{
+			experiences.map(({ title, company, date, description }) => (
+				<CardExperience
+					title={title}
+					company={company}
+					date={date}
+					description={description}
+				/>
+			))
+		}
+	</div>
 </section>
 
 <style>
-    #experience-section {
-        text-align: center;
-        margin-top: var(--p-60);
-        h1 {
-            margin-bottom: var(--p-60);
+	#experience-section {
+		text-align: center;
+		margin-top: var(--p-60);
+		h1 {
+			margin-bottom: var(--p-60);
 
-            span {
-                font-weight: bold;
-                color: transparent;
-                -webkit-text-stroke: 1px var(--color-zinc-100);
-                text-stroke: 1px var(--color-zinc-100);
-            }
-        }
-        .container-experience {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-    }
+			span {
+				font-weight: bold;
+				color: transparent;
+				-webkit-text-stroke: 1px var(--color-zinc-100);
+				text-stroke: 1px var(--color-zinc-100);
+			}
+		}
+		.container-experience {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+	}
 </style>
 
 <script>
 	import { animationAppearElements } from "@/libs/utils.ts"
 
 	document.addEventListener("astro:page-load", () => {
-			animationAppearElements(".card")
-		}
-	)
+		animationAppearElements(".card")
+	})
 </script>

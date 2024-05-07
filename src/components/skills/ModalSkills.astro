@@ -1,0 +1,156 @@
+---
+import Html from "../svg/Html.astro"
+import JavaScript from "../svg/JavaScript.astro"
+import Modal from "../ui/Modal.astro"
+import SkillComponent from "../ui/SkillComponent.astro"
+import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
+---
+
+<Modal>
+	<div
+		slot="JavaScript"
+		data-content="child-1"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<SkillComponent
+			icon={JavaScript}
+			text={skillsJS}
+			items={itemsJS}
+			colorIcon="#efb810"
+		/>
+	</div>
+	<div
+		slot="HTML5"
+		data-content="child-2"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<SkillComponent
+			icon={Html}
+			text={skillsHtml}
+			items={itemsHtml}
+			colorIcon="orange"
+		/>
+	</div>
+	<div
+		slot="CSS3"
+		data-content="child-3"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>CSS</h1>
+	</div>
+	<div
+		slot="WebComponent"
+		data-content="child-4"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>WebComponent</h1>
+	</div>
+	<div
+		slot="VCS"
+		data-content="child-5"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>VCS</h1>
+	</div>
+	<div
+		slot="PackageManagers"
+		data-content="child-6"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>Package</h1>
+	</div>
+	<div
+		slot="Frameworks"
+		data-content="child-7"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>Frameworks</h1>
+	</div>
+	<div
+		slot="BuildTools"
+		data-content="child-8"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>BuildTools</h1>
+	</div>
+	<div
+		slot="Testing"
+		data-content="child-9"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>Testing</h1>
+	</div>
+	<div
+		slot="Java"
+		data-content="child-10"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>Java</h1>
+	</div>
+	<div
+		slot="NodeJS"
+		data-content="child-11"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>NodeJS</h1>
+	</div>
+	<div
+		slot="NestJS"
+		data-content="child-12"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>NestJS</h1>
+	</div>
+	<div
+		slot="Spring"
+		data-content="child-13"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>Spring FrameWork</h1>
+	</div>
+	<div
+		slot="ExpressJS"
+		data-content="child-14"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>ExpressJS</h1>
+	</div>
+	<div
+		slot="PostgreSQL"
+		data-content="child-15"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>PostgreSQL</h1>
+	</div>
+	<div
+		slot="MongoDB"
+		data-content="child-16"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>MongoDB</h1>
+	</div>
+	<div
+		slot="OracleSQL"
+		data-content="child-17"
+		style="display: none"
+		class="container-modal-generic"
+	>
+		<h1>OracleSQL</h1>
+	</div>
+</Modal>

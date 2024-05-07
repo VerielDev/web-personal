@@ -1,0 +1,26 @@
+---
+import Java from "../svg/Java.astro"
+import Express from "@/components/svg/Express.astro"
+import Nest from "@/components/svg/Nest.astro"
+import NodeJs from "@/components/svg/NodeJs.astro"
+import Spring from "@/components/svg/Spring.astro"
+import CardSkill from "@/components/ui/CardSkill.astro"
+
+const elements = [
+	{ title: "Java", icon: Java, dataAttribute: "child-10" },
+	{ title: "NodeJS", icon: NodeJs, dataAttribute: "child-11" },
+	{ title: "NestJS", icon: Nest, dataAttribute: "child-12" },
+	{ title: "Spring", icon: Spring, dataAttribute: "child-13" },
+	{ title: "ExpressJS", icon: Express, dataAttribute: "child-14" },
+]
+---
+
+<h2 class="title">Backend</h2>
+
+<div class="container">
+	{
+		elements.map(({ title, icon, dataAttribute }) => (
+			<CardSkill title={title} icon={icon} dataAttribute={dataAttribute} />
+		))
+	}
+</div>

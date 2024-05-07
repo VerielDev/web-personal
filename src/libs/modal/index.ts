@@ -13,8 +13,10 @@ const hideModal = (selector: HTMLElement) => {
 const toggleModal = (selector: HTMLElement) => {
 	if (selector.style.display === "none" || selector.style.display === "") {
 		showModal(selector)
+		document.body.style.overflowY = "hidden"
 	} else {
 		hideModal(selector)
+		document.body.style.overflowY = "auto"
 	}
 }
 export { toggleModal }
