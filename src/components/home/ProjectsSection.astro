@@ -68,10 +68,22 @@ const projects: TypePropjects[] = [
 		article: "#project-4",
 	},
 ]
+interface Props {
+	isShowSubtitle?: boolean
+}
+const { isShowSubtitle = false } = Astro.props as Props
 ---
 
 <section id="projects-section">
 	<h1 set:html={title} />
+	{
+		isShowSubtitle && (
+			<p class="subtitle">
+				En esta seccción puede ver una lista de los proyectos que he realizado a
+				lo largo de mi carrera profesional y de formación académica.
+			</p>
+		)
+	}
 	<div class="container-projects">
 		{
 			projects.map((project) => (
@@ -104,6 +116,18 @@ const projects: TypePropjects[] = [
 	#projects-section {
 		text-align: center;
 		margin-top: var(--p-60);
+		.subtitle {
+			margin-top: var(--p-20);
+			margin: 0 auto;
+			margin-bottom: var(--p-40);
+			font-size: var(--fz-20);
+			color: var(--text-color);
+			text-align: center;
+			width: 60%;
+			@media screen and (max-width: 768px) {
+				width: 90%;
+			}
+		}
 		h1 {
 			span {
 				font-weight: bold;

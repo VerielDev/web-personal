@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+import ProjectsSection from "@/components/home/ProjectsSection.astro"
+---
+
+<Layout
+	title="Projects | Víctor Manuel Ordiales García"
+	description="Proyectos realizados por Víctor Manuel Ordiales García, desarrollador web full stack. En esta sección puedes ver las habilidades que he adquirido a lo largo de mi carrera profesional y de formación académica."
+	canonical="https://veriel.dev"
+>
+	<ProjectsSection isShowSubtitle={true} />
+</Layout>
+<script>
+	import animationAppear from "@/libs/utils"
+
+	document.addEventListener("astro:page-load", () => {
+		animationAppear("#skills")
+	})
+</script>
