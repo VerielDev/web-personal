@@ -86,9 +86,9 @@ const skills = [
 	}
 </style>
 <script>
-	import { animationAppearElements } from "@/libs/utils.ts"
+	import animationAppear from "@/libs/utils"
 
 	document.addEventListener("astro:page-load", () => {
-		animationAppearElements(".skill")
+		animationAppear("#skills-section")
 	})
 </script>

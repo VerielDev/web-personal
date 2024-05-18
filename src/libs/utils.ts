@@ -1,3 +1,5 @@
+import type { TypePropjects } from "@/components/home/ProjectsSection.astro"
+
 export const $ = <T extends HTMLElement>(
 	selector: string,
 	context: Document | HTMLElement = document,
@@ -60,5 +62,10 @@ export const animationTooltip = (level: string, tooltip: string) => {
 			tooltipElement.style.display = "none"
 		}, 500)
 	})
+}
+
+export const getRamdonProjects = (projects: TypePropjects[], count: number) => {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+	return Array.from({ length: count }, () => projects[Math.floor(Math.random() * projects.length)])
 }
 export default animationAppear

@@ -1,5 +1,6 @@
 ---
 import CardProject from "../ui/CardProject.astro"
+import ButtonViewAll from "../ui/ButtonViewAll.astro"
 import { projectsSection } from "@/const/home"
 
 import GitHub from "@/components/svg/GitHub.astro"
@@ -7,8 +8,10 @@ import GitHub from "@/components/svg/GitHub.astro"
 import IconBook from "@/components/svg/IconBook.astro"
 import IconExternalLink from "@/components/svg/IconExternalLink.astro"
 
+import { getRamdonProjects } from "@/libs/utils"
+
 const { title } = projectsSection
-interface TypePropjects {
+export interface TypePropjects {
 	title: string
 	description: string
 	github?: string
@@ -68,10 +71,13 @@ const projects: TypePropjects[] = [
 		article: "#project-4",
 	},
 ]
+const arrayProjects = getRamdonProjects(projects, 3)
 interface Props {
 	isShowSubtitle?: boolean
+	showViewAll?: boolean
 }
-const { isShowSubtitle = false } = Astro.props as Props
+
+const { isShowSubtitle = false, showViewAll = true } = Astro.props as Props
 ---
 
 <section id="projects-section">
@@ -86,31 +92,68 @@ const { isShowSubtitle = false } = Astro.props as Props
 	}
 	<div class="container-projects">
 		{
-			projects.map((project) => (
-				<div class="project">
-					<h3>{project.title}</h3>
-					<p class="description">{project.description}</p>
-					<ul class="links">
-						<CardProject
-							href={project.github}
-							icon={GitHub}
-							title="Acceso Github"
-						/>
-						<CardProject
-							href={project.demo}
-							icon={IconExternalLink}
-							title="Acceso Demo"
-						/>
-						<CardProject
-							href={project.article}
-							icon={IconBook}
-							title="Acceso Article"
-						/>
-					</ul>
-				</div>
-			))
+			showViewAll ? (
+				<>
+					{projects.map((project) => (
+						<div class="project">
+							<h3>{project.title}</h3>
+							<p class="description">{project.description}</p>
+							<ul class="links">
+								<CardProject
+									href={project.github}
+									icon={GitHub}
+									title="Acceso Github"
+								/>
+								<CardProject
+									href={project.demo}
+									icon={IconExternalLink}
+									title="Acceso Demo"
+								/>
+								<CardProject
+									href={project.article}
+									icon={IconBook}
+									title="Acceso Article"
+								/>
+							</ul>
+						</div>
+					))}
+				</>
+			) : (
+				<>
+					{arrayProjects.map((project) => (
+						<div class="project">
+							<h3>{project.title}</h3>
+							<p class="description">{project.description}</p>
+							<ul class="links">
+								<CardProject
+									href={project.github}
+									icon={GitHub}
+									title="Acceso Github"
+								/>
+								<CardProject
+									href={project.demo}
+									icon={IconExternalLink}
+									title="Acceso Demo"
+								/>
+								<CardProject
+									href={project.article}
+									icon={IconBook}
+									title="Acceso Article"
+								/>
+							</ul>
+						</div>
+					))}
+				</>
+			)
 		}
 	</div>
+	{
+		!showViewAll && (
+			<>
+				<ButtonViewAll text="Leer más" to="/project" />
+			</>
+		)
+	}
 </section>
 <style>
 	#projects-section {
@@ -149,7 +192,7 @@ const { isShowSubtitle = false } = Astro.props as Props
 				justify-content: flex-start;
 				border: 1px solid var(--color-zinc-100);
 				width: 300px;
-				height: fit-content;
+				height: 200px;
 				/* ¡border-radius: var(--p-10); */
 
 				box-shadow:

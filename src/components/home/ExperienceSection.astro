@@ -46,9 +46,9 @@ const { title } = experienceSection
 </style>
 
 <script>
-	import { animationAppearElements } from "@/libs/utils.ts"
+	import animationAppear from "@/libs/utils"
 
 	document.addEventListener("astro:page-load", () => {
-		animationAppearElements(".card")
+		animationAppear("#experience-section")
 	})
 </script>
