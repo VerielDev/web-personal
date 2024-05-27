@@ -71,3 +71,10 @@ const posts = (await getCollection("blog")).sort(
 		}
 	}
 </style>
+<script>
+	import { animationAppearElements } from "@/libs/utils"
+
+	document.addEventListener("astro:page-load", () => {
+		animationAppearElements(".container-blog .card")
+	})
+</script>

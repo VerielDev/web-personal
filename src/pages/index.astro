@@ -5,7 +5,6 @@ import FormContactSection from "@/components/home/FormContactSection.astro"
 import HeroSection from "@/components/home/HeroSection.astro"
 import ProjectsSection from "@/components/home/ProjectsSection.astro"
 import SkillsSection from "@/components/home/SkillsSection.astro"
-import TestimonialSection from "@/components/home/TestimonialSection.astro"
 import { frontMatter } from "@/const/home"
 import Layout from "@/layouts/Layout.astro"
 
@@ -16,8 +15,7 @@ const { title, description, canonical } = frontMatter
 	<HeroSection />
 	<SkillsSection />
 	<ExperienceSection />
-	<AboutMeSection />
 	<ProjectsSection showViewAll={false} />
-	<TestimonialSection />
+	<AboutMeSection />
 	<FormContactSection />
 </Layout>

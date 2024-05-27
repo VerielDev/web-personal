@@ -1,7 +1,7 @@
 ---
 import CardProject from "../ui/CardProject.astro"
 import ButtonViewAll from "../ui/ButtonViewAll.astro"
-import { projectsSection } from "@/const/home"
+import { homePage } from "@/const/home"
 
 import GitHub from "@/components/svg/GitHub.astro"
 
@@ -10,7 +10,7 @@ import IconExternalLink from "@/components/svg/IconExternalLink.astro"
 
 import { getRamdonProjects } from "@/libs/utils"
 
-const { title } = projectsSection
+const { title } = homePage.projectsSection
 export interface TypePropjects {
 	title: string
 	description: string
@@ -18,59 +18,7 @@ export interface TypePropjects {
 	demo?: string
 	article?: string
 }
-const projects: TypePropjects[] = [
-	{
-		title: "To Do React ",
-		description: "Listado de tareas realizada en React",
-		github: "https://github.com/samuraiOrDev/To-Do-React",
-		demo: "https://tod-do-react.vercel.app/",
-		article: "#project-1",
-	},
-	{
-		title: "Portfolio Web",
-		description: "Portafolio web realizado en NextJS",
-		github: "https://github.com/samuraiOrDev/samuraiordev.vercel.app/",
-		demo: "https://samuraiordev.vercel.app/",
-		article: "#project-2",
-	},
-	{
-		title: "Pokedex",
-		description: "Pokedex realizado en NextJs",
-		github: "https://github.com/samuraiOrDev/samuraiordev.vercel.app/",
-		demo: "https://pokedex-samuraiordev.vercel.app/",
-		article: "#project-3",
-	},
-	{
-		title: "Blog Personal",
-		description:
-			"Un blog personal donde puedes compartir tus pensamientos y experiencias.",
-	},
-	{
-		title: "E-commerce App",
-		description:
-			"Una aplicación de comercio electrónico donde los usuarios pueden comprar y vender productos.",
-	},
-	{
-		title: "Gestor de Finanzas",
-		description:
-			"Una herramienta para gestionar tus finanzas personales, realizar seguimiento de gastos e ingresos.",
-		github: "https://github.com/samuraiOrDev/GestorFianzas",
-	},
-	{
-		title: "Plataforma de Aprendizaje",
-		description:
-			"Una plataforma educativa en línea que ofrece cursos sobre una variedad de temas.",
-		demo: "https://pokedex-samuraiordev.vercel.app/",
-		article: "#project-4",
-	},
-	{
-		title: "App de Recetas",
-		description:
-			"Una aplicación donde puedes descubrir y compartir recetas de cocina.",
-		demo: "https://pokedex-samuraiordev.vercel.app/",
-		article: "#project-4",
-	},
-]
+const projects = homePage.projects
 const arrayProjects = getRamdonProjects(projects, 3)
 interface Props {
 	isShowSubtitle?: boolean

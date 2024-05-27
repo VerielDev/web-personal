@@ -20,7 +20,7 @@ const titleWithOutSpan = title
 	</div>
 	<h3 style="text-align: start;">{titleWithOutSpan}</h3>
 	<p class="description">{description}</p>
-	<a href={`/blog/${slug}/`}>Learn More</a>
+	<a href={`/blog/${slug}/`} class="link-blog">Leers más</a>
 	<div class="shine"></div>
 	<div class="background">
 		<div class="line line-1"></div>
@@ -64,6 +64,15 @@ const titleWithOutSpan = title
 			margin-top: var(--p-20);
 			text-align: start;
 			color: var(--text-color);
+		}
+		.link-blog {
+			z-index: 10;
+			margin-top: 10px;
+			text-decoration: none;
+			color: #fff;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 		.icon {
 			width: 50px;

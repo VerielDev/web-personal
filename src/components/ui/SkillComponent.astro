@@ -4,7 +4,7 @@ import ProgressBar from "@/components/ui/ProgressBar.astro"
 interface Props {
 	icon: any
 	text: string[]
-	items: {
+	items?: {
 		value: number
 		title: string
 	}[]
@@ -30,7 +30,16 @@ const { icon: Icon, text, items, colorIcon = "#efb810" } = Astro.props as Props
 		}
 	</div>
 	<div class="container-bar">
-		{items.map((item) => <ProgressBar value={item.value} title={item.title} />)}
+		{
+			items &&
+				items.map((item) => (
+					<ProgressBar
+						value={item.value}
+						title={item.title}
+						color={colorIcon}
+					/>
+				))
+		}
 	</div>
 </div>
 

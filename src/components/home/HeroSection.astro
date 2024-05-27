@@ -3,17 +3,15 @@ import { Image } from "astro:assets"
 import SocialBar from "../ui/SocialBar.astro"
 import Banner from "@/assets/banner.webp"
 
-import { textHeroSection } from "@/const/home"
+import { homePage } from "@/const/home"
 
-const { title, description } = textHeroSection
+const { title, description } = homePage.heroSection
 ---
 
 <section id="hero-section">
 	<div class="text-hero-section">
 		<h1 set:html={title} />
-		<p>
-			{description}
-		</p>
+		<p set:html={description} />
 		<SocialBar />
 	</div>
 	<div class="img-hero-section">

@@ -1,16 +1,16 @@
 ---
 import CardExperience from "../ui/CardExperience.astro"
 
-import { experienceSection, experiences } from "@/const/home"
+import { homePage } from "@/const/home"
 
-const { title } = experienceSection
+const { title } = homePage.experienceSection
 ---
 
 <section id="experience-section">
 	<h1 set:html={title} />
 	<div class="container-experience">
 		{
-			experiences.map(({ title, company, date, description }) => (
+			homePage.experiences.map(({ title, company, date, description }) => (
 				<CardExperience
 					title={title}
 					company={company}

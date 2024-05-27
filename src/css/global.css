@@ -36,7 +36,7 @@
 		var(--color-zinc-700) 25% 50%,
 		var(--color-zinc-800) 50% 100%
 	);
-	--background-gradient-lineal: radial-gradient(
+	--background-gradient-radial: radial-gradient(
 		circle,
 		var(--color-zinc-800) 0%,
 		var(--color-dark) 100%
@@ -89,7 +89,7 @@
 }
 
 body {
-	background: var(--background-gradient-lineal);
+	background: var(--background-gradient-radial);
 	color: var(--color-zinc-100);
 
 	font-size: var(--font-size-standard);

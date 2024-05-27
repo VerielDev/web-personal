@@ -1,5 +1,15 @@
+---
+import { linksNavBar } from "@/const/common"
+---
+
 <ul>
-	<li><a href="/skills" title="Skills">Skills</a></li>
-	<li><a href="/project" title="Project">Project</a></li>
-	<li><a href="/blog" title="Blog">Blog</a></li>
+	{
+		linksNavBar.map((link) => (
+			<li>
+				<a href={link.to} title={link.title}>
+					{link.title}
+				</a>
+			</li>
+		))
+	}
 </ul>

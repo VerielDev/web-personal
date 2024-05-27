@@ -1,40 +1,15 @@
 ---
-import JavaScript from "../svg/JavaScript.astro"
-import TypeScript from "../svg/TypeScript.astro"
-import Nest from "../svg/Nest.astro"
 import React from "../svg/React.astro"
-import Next from "../svg/Next.astro"
-import NodeJs from "../svg/NodeJs.astro"
-import Express from "../svg/Express.astro"
-import Java from "../svg/Java.astro"
-import Tailwind from "../svg/Tailwind.astro"
-import AstroLogo from "../svg/AstroLogo.astro"
-import Spring from "../svg/Spring.astro"
-import Oracle from "../svg/Oracle.astro"
-import { skillsSection } from "@/const/home"
+import { homePage } from "@/const/home"
 
-const { title } = skillsSection
-const skills = [
-	{ title: "JavaScript", icon: JavaScript },
-	{ title: "TypeScript", icon: TypeScript },
-	{ title: "NestJS", icon: Nest },
-	{ title: "React", icon: React },
-	{ title: "NextJS", icon: Next },
-	{ title: "NodeJS", icon: NodeJs },
-	{ title: "Express", icon: Express },
-	{ title: "Java", icon: Java },
-	{ title: "Tailwind", icon: Tailwind },
-	{ title: "Astro", icon: AstroLogo },
-	{ title: "Spring", icon: Spring },
-	{ title: "OWCS", icon: Oracle },
-]
+const { title } = homePage.skillsSection
 ---
 
 <section id="skills-section">
 	<h1 set:html={title} />
 	<div class="container-skills">
 		{
-			skills.map(({ title, icon: Icon }) => (
+			homePage.skills.map(({ title, icon: Icon }) => (
 				<div class="skill">
 					<Icon />
 					{title}

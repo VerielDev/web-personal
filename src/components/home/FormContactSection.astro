@@ -1,8 +1,8 @@
 ---
 import FormContact from "../ui/FormContact.astro"
-import { formContactSection } from "@/const/home"
+import { homePage } from "@/const/home"
 
-const { title, subTitle } = formContactSection
+const { title, subTitle, description, tel, email } = homePage.formContactSection
 ---
 
 <section id="container-form-contact-section">
@@ -12,12 +12,11 @@ const { title, subTitle } = formContactSection
 		<div class="form-description">
 			<h2 set:html={subTitle} />
 			<p>
-				You have a project in mind? Let's talk about it. It would be a pleasure
-				to help you to make it real.
+				{description}
 			</p>
 			<div class="links">
-				<a href="#a">Youemail@gmail.com</a>
-				<a href="#a">685394859</a>
+				<a href={`mailto:${email}`}>{email}</a>
+				<a href={`tel:+${tel}`}>{tel}</a>
 			</div>
 		</div>
 	</div>
@@ -38,7 +37,7 @@ const { title, subTitle } = formContactSection
 		.form-contact-section {
 			display: flex;
 			justify-content: center;
-			align-items: center;
+			align-items: flex-start;
 			margin: 0 auto;
 			margin-top: var(--p-40);
 			gap: 2rem;

@@ -1,9 +1,23 @@
 ---
+import Css from "../svg/Css.astro"
+import FrameWorks from "../svg/FrameWorks.astro"
 import Html from "../svg/Html.astro"
 import JavaScript from "../svg/JavaScript.astro"
+import Package from "../svg/Package.astro"
+import Vcs from "../svg/Vcs.astro"
 import Modal from "../ui/Modal.astro"
 import SkillComponent from "../ui/SkillComponent.astro"
-import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
+import {
+	itemsCss,
+	itemsHtml,
+	itemsJS,
+	skillsCss,
+	skillsFrameworkFront,
+	skillsHtml,
+	skillsJS,
+	skillsPackages,
+	skillsVcs,
+} from "@/const/data"
 ---
 
 <Modal>
@@ -39,7 +53,12 @@ import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
 		style="display: none"
 		class="container-modal-generic"
 	>
-		<h1>CSS</h1>
+		<SkillComponent
+			icon={Css}
+			text={skillsCss}
+			items={itemsCss}
+			colorIcon="royalblue"
+		/>
 	</div>
 	<div
 		slot="WebComponent"
@@ -55,7 +74,7 @@ import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
 		style="display: none"
 		class="container-modal-generic"
 	>
-		<h1>VCS</h1>
+		<SkillComponent icon={Vcs} text={skillsVcs} colorIcon="green" />
 	</div>
 	<div
 		slot="PackageManagers"
@@ -63,7 +82,7 @@ import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
 		style="display: none"
 		class="container-modal-generic"
 	>
-		<h1>Package</h1>
+		<SkillComponent icon={Package} text={skillsPackages} colorIcon="violet" />
 	</div>
 	<div
 		slot="Frameworks"
@@ -71,7 +90,11 @@ import { itemsHtml, itemsJS, skillsHtml, skillsJS } from "@/const/data"
 		style="display: none"
 		class="container-modal-generic"
 	>
-		<h1>Frameworks</h1>
+		<SkillComponent
+			icon={FrameWorks}
+			text={skillsFrameworkFront}
+			colorIcon="red"
+		/>
 	</div>
 	<div
 		slot="BuildTools"
