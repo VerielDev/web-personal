@@ -15,5 +15,5 @@ export const linksNavBar = [
 
 export const footer = {
 	title: "Víctor Manuel Ordiales García",
-	description: "&copy; 2024 - Todos los derechos reservados",
+	description: "2024 - Todos los derechos reservados",
 }
