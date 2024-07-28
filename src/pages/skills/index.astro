@@ -15,8 +15,8 @@ const title = "My <span>Skills</span>"
 	description="Sección de habilidades de Víctor Manuel Ordiales García"
 	canonical="https://veriel.dev"
 >
+	<ModalSkills />
 	<section id="skills">
-		<ModalSkills />
 		<div class="title">
 			<h1 set:html={title} />
 			<p class="subtitle">
@@ -36,25 +36,29 @@ const title = "My <span>Skills</span>"
 	import { toggleModal } from "@/libs/modal"
 
 	document.addEventListener("astro:page-load", () => {
-		const modalGeneric = $("#modal-generic") as HTMLElement
-		const elements: NodeListOf<HTMLElement> = $$(".element")
-		elements.forEach((element) => {
-			element.addEventListener("click", () => {
-				const dataAttribute = element.getAttribute("data-atribute")
-				;(
-					modalGeneric.querySelector(
-						`[data-content="${dataAttribute}"]`
-					) as HTMLElement
-				).style.display = "block"
-				toggleModal(modalGeneric)
-			})
-			modalGeneric.addEventListener("click", () => {
-				toggleModal(modalGeneric)
-				document.querySelectorAll("[data-content]").forEach((content) => {
-					;(content as HTMLElement).style.display = "none"
+		const mediaQuery = window.matchMedia("(min-width:768px)")
+
+		if (mediaQuery.matches) {
+			const modalGeneric = $("#modal-generic") as HTMLElement
+			const elements: NodeListOf<HTMLElement> = $$(".element")
+			elements.forEach((element) => {
+				element.addEventListener("click", () => {
+					const dataAttribute = element.getAttribute("data-atribute")
+					;(
+						modalGeneric.querySelector(
+							`[data-content="${dataAttribute}"]`
+						) as HTMLElement
+					).style.display = "block"
+					toggleModal(modalGeneric)
+				})
+				modalGeneric.addEventListener("click", () => {
+					toggleModal(modalGeneric)
+					document.querySelectorAll("[data-content]").forEach((content) => {
+						;(content as HTMLElement).style.display = "none"
+					})
 				})
 			})
-		})
+		}
 	})
 </script>
 

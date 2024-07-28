@@ -24,7 +24,7 @@
 
 <style>
 	#modal-generic {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -34,16 +34,21 @@
 		align-items: center;
 		z-index: 1000;
 		display: none;
+
 		.container-modal-generic {
+			top: 20px;
 			position: relative;
 			background-color: var(--color-zinc-800);
 			padding: var(--p-20);
 			border-radius: var(--p-5);
 			width: 100%;
 			max-width: 1024px;
+			max-height: 90vh;
 			height: 100%;
-			@media screen and (max-width: 768px) {
+			overflow-y: auto;
+			@media screen and (max-width: 1024px) {
 				padding: var(--p-5);
+				width: 90%;
 			}
 		}
 	}

@@ -1,8 +1,5 @@
 ---
 import CardTestimonial from "../ui/CardTestimonial.astro"
-import { testimonialSection } from "@/const/home"
-
-const { title } = testimonialSection
 
 const testimonial = [
 	{
@@ -27,7 +24,7 @@ const testimonial = [
 ---
 
 <section id="testimonial-section">
-	<h1 set:html={title} />
+	<h1 set:html={"Hola buenos días"} />
 	<div class="container-testimonial">
 		{testimonial.map((testimonial) => <CardTestimonial {...testimonial} />)}
 	</div>
