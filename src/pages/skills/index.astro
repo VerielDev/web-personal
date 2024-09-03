@@ -6,8 +6,9 @@ import Frontend from "@/components/skills/Frontend.astro"
 import Backend from "@/components/skills/Backend.astro"
 import ModalSkills from "@/components/skills/ModalSkills.astro"
 import Bbdd from "@/components/skills/Bbdd.astro"
+import Others from "@/components/skills/Others.astro"
 
-const title = "My <span>Skills</span>"
+const title = "Habilidades"
 ---
 
 <Layout
@@ -28,6 +29,7 @@ const title = "My <span>Skills</span>"
 			<Frontend />
 			<Backend />
 			<Bbdd />
+			<Others />
 		</div>
 	</section>
 </Layout>
@@ -46,7 +48,7 @@ const title = "My <span>Skills</span>"
 					const dataAttribute = element.getAttribute("data-atribute")
 					;(
 						modalGeneric.querySelector(
-							`[data-content="${dataAttribute}"]`
+							`[data-content="${dataAttribute}"]`,
 						) as HTMLElement
 					).style.display = "block"
 					toggleModal(modalGeneric)
@@ -96,13 +98,16 @@ const title = "My <span>Skills</span>"
 				font-size: var(--font-size-2xlarge);
 				text-align: center;
 				font-weight: bold;
-				color: transparent;
+				/* color: transparent;
 				-webkit-text-stroke: 1px var(--color-zinc-100);
-				text-stroke: 1px var(--color-zinc-100);
+				text-stroke: 1px var(--color-zinc-100); */
 				&:nth-child(3) {
 					margin-top: var(--p-40);
 				}
 				&:nth-child(5) {
+					margin-top: var(--p-40);
+				}
+				&:nth-child(7) {
 					margin-top: var(--p-40);
 				}
 			}

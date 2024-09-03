@@ -116,7 +116,7 @@ import NavBarMobile from "./NavBarMobile.astro"
 			#nav-bar-mobile {
 				display: none;
 				position: absolute;
-				background: var(--background-gradient-lineal);
+				background: var(--background-gradient-radial);
 				top: 0;
 				left: 0;
 				width: 100%;
@@ -179,7 +179,7 @@ import NavBarMobile from "./NavBarMobile.astro"
 
 		const closeMenu = document.querySelector("#close-menu") as HTMLElement
 		const navBarMobile = document.querySelector(
-			"#nav-bar-mobile"
+			"#nav-bar-mobile",
 		) as HTMLElement
 
 		openMenu.addEventListener("click", () => toggleMenu(true))

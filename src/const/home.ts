@@ -13,7 +13,7 @@ import Tailwind from "@/components/svg/Tailwind.astro"
 import TypeScript from "@/components/svg/TypeScript.astro"
 
 export const frontMatter = {
-	title: "Inicio | Víctor Manuel Ordiales García",
+	title: "Home | Víctor Manuel Ordiales García | Veriel.dev",
 	description:
 		"Víctor Manuel Ordiales García is a software engineer with experience in web development, mobile development, and cloud computing.",
 	canonical: "https://veriel.dev",
@@ -26,7 +26,7 @@ export const homePage = {
 			"¡Hola! Soy Víctor Manuel Ordiales García, <span style='color: #fff;'>Desarrollador Web Full Stack</span>, <span style='color: #fff;'>Graduado en Física</span> y actualmente trabajo en <span style='color: #fff;'>Viewnext S.A</span>. Me apasiona el mundo de la programación y el desarrollo web, combinando mi experiencia técnica con una sólida formación científica para crear soluciones digitales innovadoras y eficientes.",
 	},
 	skillsSection: {
-		title: "Hab<span>ilidades</span>",
+		title: "Habilidades",
 	},
 	skills: [
 		{ title: "JavaScript", icon: JavaScript },
@@ -43,7 +43,7 @@ export const homePage = {
 		{ title: "OWCS", icon: Oracle },
 	],
 	experienceSection: {
-		title: "Exp<span>eriencia</span>",
+		title: "Experiencia",
 	},
 	experiences: [
 		{
@@ -51,14 +51,14 @@ export const homePage = {
 			company: "Viewnext S.A",
 			date: "Agosto 2021 - Febrero 2023",
 			description:
-				"Realización y mantenimiento de proyectos e evolutivos dentro del marco del CMS Oracle Web Center Site (OWCS)",
+				"Realización y mantenimiento de proyectos y evolutivos dentro del marco del CMS Oracle Web Center Site (OWCS)",
 		},
 		{
 			title: "Desarrollador Full Stack",
 			company: "Viewnext S.A",
 			date: "Febero 2023 - Actualidad",
 			description:
-				"Relización y mantenimiento de proyectos e evolutivos Full Stack. Todo esto hacienco uso de Spring Framework para el Backend y OWCS como CMS",
+				"Realización y mantenimiento de proyectos y evolutivos Full Stack. Todo esto hacienco uso de Spring Framework para el Backend y OWCS como CMS",
 		},
 		{
 			title: "I + D",
@@ -69,12 +69,12 @@ export const homePage = {
 		},
 	],
 	aboutSection: {
-		title: "Sobre <span>Mi</span>",
+		title: "Sobre Mi",
 		description:
 			"Graduado en Física y desarrollador full stack con habilidades sólidas en JavaScript (JS), TypeScript (TS), Java y sistemas de gestión de contenido como Oracle WebCenter Sites (OWCS).<br/> <br/>Mi formación en Física me ha proporcionado una mentalidad analítica y resolutiva, mientras que mi experiencia en desarrollo me permite crear soluciones técnicas eficientes y escalables. <br/> <br/>He trabajado en proyectos desafiantes que requieren un enfoque meticuloso y estratégico para la implementación de sistemas de gestión de contenido que optimicen la experiencia del usuario y la eficiencia operativa. Estoy comprometido a seguir creciendo profesionalmente y aplicar mis habilidades para enfrentar nuevos desafíos en el ámbito del desarrollo de software y la gestión de contenido en línea.",
 	},
 	projectsSection: {
-		title: "Pro<span>yectos</span>",
+		title: "Proyectos",
 	},
 	projects: [
 		{
@@ -130,10 +130,10 @@ export const homePage = {
 		},
 	],
 	formContactSection: {
-		title: "Con<span>tacto</span>",
-		subTitle: "<span>Gracias</span> por visitar mi web personal!!",
+		title: "Contacto",
+		subTitle: "Gracias por visitar mi web personal!!",
 		description:
-			"Espero qeu hayas disfrutado explorando mi trbajo y que hayas obtenido una idea clara de mis habilidades y experiencia",
+			"Espero que hayas disfrutado explorando mi trbajo y que hayas obtenido una idea clara de mis habilidades y experiencia",
 		email: "vmordialesg@gmail.com",
 		tel: "685394859",
 		inputs: {

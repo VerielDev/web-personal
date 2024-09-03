@@ -1,0 +1,26 @@
+---
+import Vcs from "../svg/Vcs.astro"
+import Package from "../svg/Package.astro"
+import Gear from "../svg/Gear.astro"
+import CardSkill from "@/components/ui/CardSkill.astro"
+
+const elements = [
+	{ title: "VCS", icon: Vcs, dataAttribute: "child-5" },
+	{
+		title: "Package Managers",
+		icon: Package,
+		dataAttribute: "child-6",
+	},
+	{ title: "Build Tools", icon: Gear, dataAttribute: "child-8" },
+]
+---
+
+<h2 class="title">Others</h2>
+
+<div class="container">
+	{
+		elements.map(({ title, icon, dataAttribute }) => (
+			<CardSkill title={title} icon={icon} dataAttribute={dataAttribute} />
+		))
+	}
+</div>
